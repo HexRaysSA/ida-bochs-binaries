@@ -1,0 +1,3 @@
+[submodule "vendor/bochs"]
+	path = vendor/bochs
+	url = https://github.com/bochs-emu/Bochs.git

@@ -1,0 +1,285 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+    tags:
+      - "v*"
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: read-all
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Common configure flags for IDA's Bochs debugger integration.
+  # --enable-debugger is required: IDA communicates with Bochs through its
+  # internal debugger interface.
+  BOCHS_CONFIGURE_COMMON: >-
+    --enable-static-link
+    --with-nogui
+    --enable-debugger
+    --disable-debugger-gui
+    --enable-disasm
+    --enable-x86-64
+    --enable-pci
+    --enable-cpu-level=6
+    --enable-a20-pin
+    --enable-fpu
+    --enable-large-ramfile
+    --disable-readline
+    --enable-show-ips
+    --enable-logging
+    --enable-usb
+    --enable-usb-ohci
+    --enable-clgd54xx
+    --enable-avx
+    --disable-docbook
+  STUB_DLLS: >-
+    ntdll kernel32 user32 shell32 shlwapi urlmon advapi32 mswsock wininet
+    msvcrt gdi32 ole32 wsock32 ws2_32
+
+jobs:
+  build-bochs:
+    name: Bochs (${{ matrix.platform }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            platform: linux-x86_64
+          - os: ubuntu-24.04-arm
+            platform: linux-aarch64
+          - os: windows-latest
+            platform: windows-x86_64
+          - os: macos-latest
+            platform: macos-aarch64
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Setup MSYS2
+        if: runner.os == 'Windows'
+        uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: >-
+            mingw-w64-x86_64-gcc
+            make
+            diffutils
+            flex
+            bison
+
+      - name: Configure and build (Linux)
+        if: runner.os == 'Linux'
+        working-directory: vendor/bochs/bochs
+        shell: bash
+        run: |
+          ./configure \
+            --prefix="${{ github.workspace }}/bochs-install" \
+            $BOCHS_CONFIGURE_COMMON
+          make -j$(nproc)
+          make install
+
+      - name: Configure and build (macOS)
+        if: runner.os == 'macOS'
+        working-directory: vendor/bochs/bochs
+        shell: bash
+        run: |
+          ./configure \
+            --prefix="${{ github.workspace }}/bochs-install" \
+            $BOCHS_CONFIGURE_COMMON
+          make -j$(sysctl -n hw.ncpu)
+          make install
+
+      - name: Configure and build (Windows)
+        if: runner.os == 'Windows'
+        shell: msys2 {0}
+        run: |
+          cd vendor/bochs/bochs
+          ./configure \
+            --prefix="$(cygpath -u '${{ github.workspace }}')/bochs-install" \
+            $BOCHS_CONFIGURE_COMMON
+          make -j$(nproc)
+          make install
+
+      - name: Collect artifacts (Unix)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          mkdir -p "artifacts/bin" "artifacts/share/bochs"
+          cp "bochs-install/bin/bochs" "artifacts/bin/"
+          cp "bochs-install/share/bochs/BIOS-bochs-latest" "artifacts/share/bochs/"
+          cp "bochs-install/share/bochs/VGABIOS-lgpl-latest" "artifacts/share/bochs/"
+
+      - name: Collect artifacts (Windows)
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          mkdir -p "artifacts"
+          # IDA expects "bochsdbg.exe" on Windows, not "bochs.exe"
+          cp "bochs-install/bin/bochs.exe" "artifacts/bochsdbg.exe"
+          cp "bochs-install/share/bochs/BIOS-bochs-latest" "artifacts/"
+          cp "bochs-install/share/bochs/VGABIOS-lgpl-latest" "artifacts/"
+
+      - name: Upload Bochs artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: bochs-${{ matrix.platform }}
+          path: artifacts/*
+          if-no-files-found: error
+
+  generate-stubs:
+    name: Windows DLL stubs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Generate stub DLLs
+        run: uv run --with lief scripts/generate_stubs.py
+
+      - name: Upload stub artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: win-stubs
+          path: data/stubs/windows/*.dll
+          if-no-files-found: error
+
+  package:
+    name: Package plugin
+    needs: [build-bochs, generate-stubs]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Assemble plugin archive
+        shell: bash
+        run: |
+          mkdir -p stage
+
+          # Plugin entry point and metadata
+          cp ida-plugin.json stage/
+          cp bochs_binaries_entry.py stage/
+
+          # Bochs binaries — each platform in its own subdirectory
+          for artifact_dir in artifacts/bochs-*/; do
+            platform=$(basename "$artifact_dir" | sed 's/^bochs-//')
+            mkdir -p "stage/bochs/${platform}"
+            cp -r "${artifact_dir}"* "stage/bochs/${platform}/"
+          done
+
+          find stage/bochs -path '*/bin/bochs' -type f -exec chmod +x {} +
+
+          # Windows DLL stubs
+          mkdir -p stage/data/stubs/windows
+          cp artifacts/win-stubs/*.dll stage/data/stubs/windows/
+
+          # Build the archive
+          cd stage
+          zip -r ../ida-bochs-binaries.zip *
+
+      - name: Lint plugin
+        run: uvx --from ida-hcli hcli --disable-updates plugin lint stage/
+
+      - name: Upload plugin archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: ida-bochs-binaries
+          path: ida-bochs-binaries.zip
+          if-no-files-found: error
+
+      - name: Create release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ida-bochs-binaries.zip
+          fail_on_unmatched_files: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  test:
+    name: Test (${{ matrix.name }})
+    needs: package
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux
+            os: ubuntu-latest
+            ida_slug: "release/9.3/ida-pro/ida-pro_93_x64linux.run"
+          - name: Linux ARM
+            os: ubuntu-24.04-arm
+            ida_slug: "ida-pro:9.3:armlinux"
+          - name: Windows
+            os: windows-latest
+            ida_slug: "release/9.3/ida-pro/ida-pro_93_x64win.exe"
+          - name: macOS
+            os: macos-latest
+            ida_slug: "release/9.3/ida-pro/ida-pro_93_armmac.app.zip"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Download plugin archive
+        uses: actions/download-artifact@v4
+        with:
+          name: ida-bochs-binaries
+
+      - name: Install IDA Pro 9.3
+        shell: bash
+        run: |
+          uvx --from ida-hcli hcli --disable-updates ida install \
+            --download-id "${{ matrix.ida_slug }}" \
+            --license-id "${{ secrets.IDA_LICENSE_ID }}" \
+            --set-default --accept-eula --yes
+        env:
+          HCLI_API_KEY: ${{ secrets.HCLI_API_KEY }}
+
+      - name: Install plugin
+        shell: bash
+        run: |
+          uvx --from ida-hcli hcli --disable-updates plugin install ida-bochs-binaries.zip
+
+      - name: Install idalib
+        run: uv pip install --system idapro ida-domain
+
+      - name: Download test sample
+        shell: bash
+        run: |
+          curl -L -o "${{ runner.temp }}/pma-lab01-01.exe_" \
+            "https://raw.githubusercontent.com/mandiant/capa-testfiles/master/Practical%20Malware%20Analysis%20Lab%2001-01.exe_"
+
+      - name: Run Bochs debugger test
+        shell: bash
+        run: |
+          python scripts/idalib-dbg-bochs.py "${{ runner.temp }}/pma-lab01-01.exe_"
