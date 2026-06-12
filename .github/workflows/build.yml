@@ -178,8 +178,7 @@ jobs:
         run: |
           mkdir -p stage
 
-          # Plugin entry point and metadata
-          cp ida-plugin.json stage/
+          cp ida-plugin._.json stage/ida-plugin.json
           cp bochs_binaries_entry.py stage/
 
           # Bochs binaries — each platform in its own subdirectory
