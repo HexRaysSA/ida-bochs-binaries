@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate minimal PE32 stub DLLs from a local export snapshot.
 
-Reads export names from data/stubs/exports.json (snapshotted from Wine 9.0
+Reads export names from data/stubs/exports.json (snapshotted from Wine
 .spec files) and creates tiny DLLs containing only an export directory.
 IDA's Bochs PE mode reads only the export table from each DLL — no actual
 code is needed.

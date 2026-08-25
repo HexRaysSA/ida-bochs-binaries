@@ -42,6 +42,20 @@ env:
   STUB_DLLS: >-
     ntdll kernel32 user32 shell32 shlwapi urlmon advapi32 mswsock wininet
     msvcrt gdi32 ole32 wsock32 ws2_32
+    comctl32 comdlg32 oleaut32 version rpcrt4 secur32 crypt32 wintrust
+    winhttp iphlpapi setupapi userenv psapi imm32 kernelbase normaliz
+    sechost netapi32 mpr
+    bcrypt ncrypt dbghelp imagehlp wtsapi32 samlib authz credui sfc sfc_os
+    amsi wer dnsapi dhcpcsvc fwpuclnt httpapi cabinet
+    ucrtbase vcruntime140 msvcp140 msvcr120 msvcp120 msvcr110 msvcp110
+    msvcr100 msvcp100 msvcr90 msvcp90 msvcr80 msvcp80 msvcr71 msvcp71
+    msvcp60 msvcirt msvcrt20
+    oleacc oledlg propsys combase comsvcs mscoree wbemprox wbemdisp
+    wmiutils activeds ntdsapi
+    uxtheme shcore dwmapi winmm msimg32 powrprof apphelp sxs cfgmgr32
+    wevtapi pdh msi wldap32 odbc32 msacm32 riched20 msftedit cryptnet
+    cryptui cryptsp snmpapi nsi rasapi32 taskschd rstrtmgr dbgeng tdh
+    d3d9 d3d11 dxgi d2d1 dwrite dsound opengl32 dinput xinput1_3
 
 jobs:
   build-bochs:
