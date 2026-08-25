@@ -83,17 +83,25 @@ def _setup_idabxpathmap():
     if sys.platform == "win32":
         return True
 
-    win_stubs = os.path.join(PLUGIN_DIR, "data", "stubs", "windows")
-    if not os.path.isdir(win_stubs):
-        logger.debug("win_stubs directory not found, PE mode may not work on this platform")
+    stubs_base = os.path.join(PLUGIN_DIR, "data", "stubs")
+    entries = []
+
+    win32_stubs = os.path.join(stubs_base, "windows")
+    if os.path.isdir(win32_stubs):
+        entries.append(win32_stubs + "/=c:/windows/system32/")
+        entries.append(win32_stubs + "/=c:/windows/syswow64/")
+
+    win64_stubs = os.path.join(stubs_base, "windows64")
+    if os.path.isdir(win64_stubs):
+        entries.append(win64_stubs + "/=c:/windows/system32/")
+
+    if not entries:
+        logger.debug("no stub directories found, PE mode may not work on this platform")
         return False
 
-    entry = win_stubs + "/=c:/windows/system32/"
     existing = os.environ.get("IDABXPATHMAP", "")
-    if existing:
-        os.environ["IDABXPATHMAP"] = existing + ";" + entry
-    else:
-        os.environ["IDABXPATHMAP"] = entry
+    new_value = ";".join(filter(None, [existing] + entries))
+    os.environ["IDABXPATHMAP"] = new_value
     logger.debug("IDABXPATHMAP=%s", os.environ["IDABXPATHMAP"])
     return True
 
