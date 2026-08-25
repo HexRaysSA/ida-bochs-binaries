@@ -149,16 +149,35 @@ jobs:
       - name: Generate stub DLLs
         run: uv run --with lief scripts/generate_stubs.py
 
-      - name: Upload stub artifacts
+      - name: Upload 32-bit stub artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: win-stubs
+          name: win-stubs-x86
           path: data/stubs/windows/*.dll
           if-no-files-found: error
 
+      - name: Upload 64-bit stub artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: win-stubs-x64
+          path: data/stubs/windows64/*.dll
+          if-no-files-found: error
+
+  unit-tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Run tests
+        run: uv run --with lief --with pytest pytest tests/ -v
+
   package:
     name: Package plugin
-    needs: [build-bochs, generate-stubs]
+    needs: [build-bochs, generate-stubs, unit-tests]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -190,9 +209,10 @@ jobs:
 
           find stage/bochs -path '*/bin/bochs' -type f -exec chmod +x {} +
 
-          # Windows DLL stubs
-          mkdir -p stage/data/stubs/windows
-          cp artifacts/win-stubs/*.dll stage/data/stubs/windows/
+          # Windows DLL stubs (32-bit and 64-bit)
+          mkdir -p stage/data/stubs/windows stage/data/stubs/windows64
+          cp artifacts/win-stubs-x86/*.dll stage/data/stubs/windows/
+          cp artifacts/win-stubs-x64/*.dll stage/data/stubs/windows64/
 
           # Build the archive
           cd stage

@@ -1,4 +1,5 @@
 /data/stubs/windows
+/data/stubs/windows64
 /bochs/macos-aarch64
 /Practical Malware Analysis Lab 01-01.exe_
 /scripts/__pycache__
