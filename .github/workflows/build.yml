@@ -297,9 +297,12 @@ jobs:
           curl -L -o "${{ runner.temp }}/pma-lab01-01.exe_" \
             "https://raw.githubusercontent.com/mandiant/capa-testfiles/master/Practical%20Malware%20Analysis%20Lab%2001-01.exe_"
 
-      - name: List IDA debugger plugins
+      - name: List IDA bochs files
         shell: bash
-        run: find "$(python -c "import idaapi; import os; print(os.path.dirname(idaapi.__file__))")" -iname '*bochs*' 2>/dev/null || echo "no bochs files found"
+        run: |
+          ida_dir=$(uvx --from ida-hcli hcli --disable-updates ida info --json 2>/dev/null | python -c "import sys,json; print(json.load(sys.stdin)['path'])")
+          echo "IDA dir: $ida_dir"
+          find "$ida_dir" -iname '*bochs*' 2>/dev/null || echo "no bochs files found"
 
       - name: Run Bochs debugger test
         shell: bash
