@@ -297,6 +297,10 @@ jobs:
           curl -L -o "${{ runner.temp }}/pma-lab01-01.exe_" \
             "https://raw.githubusercontent.com/mandiant/capa-testfiles/master/Practical%20Malware%20Analysis%20Lab%2001-01.exe_"
 
+      - name: List IDA debugger plugins
+        shell: bash
+        run: ls -la "$(dirname "$(which idat || which idat64)")"/../dbg/ || true
+
       - name: Run Bochs debugger test
         shell: bash
         run: |
