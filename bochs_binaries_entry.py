@@ -13,23 +13,14 @@ PLATFORM_SUBDIRS = {
     ("linux", "x86_64"): "linux-x86_64",
     ("linux", "aarch64"): "linux-aarch64",
     ("linux", "arm64"): "linux-aarch64",
-    ("win32", "64"): "windows-x86_64",
-    ("win32", "32"): "windows-x86",
+    ("win32", "AMD64"): "windows-x86_64",
+    ("win32", "ARM64"): "windows-aarch64",
 }
 
 
 def _get_platform_subdir():
-    if sys.platform == "win32":
-        import struct
-        bits = str(struct.calcsize("P") * 8)
-        return PLATFORM_SUBDIRS.get(("win32", bits))
-    elif sys.platform == "darwin":
-        import platform
-        return PLATFORM_SUBDIRS.get(("darwin", platform.machine()))
-    elif sys.platform == "linux":
-        import platform
-        return PLATFORM_SUBDIRS.get(("linux", platform.machine()))
-    return None
+    import platform
+    return PLATFORM_SUBDIRS.get((sys.platform, platform.machine()))
 
 
 def _ensure_executable(path):
