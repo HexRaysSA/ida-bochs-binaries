@@ -299,10 +299,12 @@ jobs:
 
       - name: List IDA bochs files
         shell: bash
+        continue-on-error: true
         run: |
-          ida_dir=$(uvx --from ida-hcli hcli --disable-updates ida info --json 2>/dev/null | python -c "import sys,json; print(json.load(sys.stdin)['path'])")
-          echo "IDA dir: $ida_dir"
-          find "$ida_dir" -iname '*bochs*' 2>/dev/null || echo "no bochs files found"
+          uvx --from ida-hcli hcli --disable-updates ida info
+          ida_dir=$(uvx --from ida-hcli hcli --disable-updates ida info 2>/dev/null | grep -i path | head -1 | sed 's/.*: *//')
+          echo "--- searching: $ida_dir ---"
+          find "$ida_dir" -iname '*bochs*' 2>/dev/null || echo "no bochs files found in $ida_dir"
 
       - name: Run Bochs debugger test
         shell: bash
