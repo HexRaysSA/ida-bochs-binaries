@@ -300,7 +300,14 @@ jobs:
       - name: List IDA bochs files
         shell: bash
         continue-on-error: true
-        run: python -c "import idapro, pathlib, sys; d=pathlib.Path(sys.modules['idapro'].__file__).resolve().parent.parent; print(f'IDA: {d}'); [print(f'  {p.relative_to(d)}') for p in sorted(d.rglob('*bochs*'))]"
+        run: |
+          python -c "
+          import idapro, pathlib, sys
+          d = pathlib.Path(sys.modules['idapro'].__file__).resolve().parent.parent
+          print(f'IDA dir: {d}')
+          for p in sorted(d.rglob('*bochs*')):
+              print(f'  {p.relative_to(d)}')
+          "
 
       - name: Run Bochs debugger test
         shell: bash
