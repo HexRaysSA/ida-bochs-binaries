@@ -300,11 +300,7 @@ jobs:
       - name: List IDA bochs files
         shell: bash
         continue-on-error: true
-        run: |
-          uvx --from ida-hcli hcli --disable-updates ida info
-          ida_dir=$(uvx --from ida-hcli hcli --disable-updates ida info 2>/dev/null | grep -i path | head -1 | sed 's/.*: *//')
-          echo "--- searching: $ida_dir ---"
-          find "$ida_dir" -iname '*bochs*' 2>/dev/null || echo "no bochs files found in $ida_dir"
+        run: python -c "import idapro, pathlib, sys; d=pathlib.Path(sys.modules['idapro'].__file__).resolve().parent.parent; print(f'IDA: {d}'); [print(f'  {p.relative_to(d)}') for p in sorted(d.rglob('*bochs*'))]"
 
       - name: Run Bochs debugger test
         shell: bash
