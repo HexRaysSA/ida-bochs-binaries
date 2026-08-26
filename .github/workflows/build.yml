@@ -250,9 +250,11 @@ jobs:
           - name: Windows
             os: windows-latest
             ida_slug: "ida-pro:9.4:x64win"
-          - name: Windows ARM
-            os: windows-11-arm
-            ida_slug: "ida-pro:9.4:windows:arm64"
+          # IDA 9.4 does not ship the bochs debugger plugin for ARM64 Windows.
+          # Re-enable when a future IDA release includes plugins/bochs/bochsys.dll.
+          # - name: Windows ARM
+          #   os: windows-11-arm
+          #   ida_slug: "ida-pro:9.4:windows:arm64"
           - name: macOS
             os: macos-latest
             ida_slug: "ida-pro:9.4:armmac"
@@ -296,16 +298,6 @@ jobs:
         run: |
           curl -L -o "${{ runner.temp }}/pma-lab01-01.exe_" \
             "https://raw.githubusercontent.com/mandiant/capa-testfiles/master/Practical%20Malware%20Analysis%20Lab%2001-01.exe_"
-
-      - name: List IDA bochs files
-        shell: bash
-        continue-on-error: true
-        run: |
-          for d in /opt/ida* /Applications/IDA* "$PROGRAMFILES"/IDA*; do
-            [ -d "$d" ] || continue
-            echo "=== $d ==="
-            find "$d" -maxdepth 3 -iname '*bochs*'
-          done
 
       - name: Run Bochs debugger test
         shell: bash
