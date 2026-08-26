@@ -299,7 +299,7 @@ jobs:
 
       - name: List IDA debugger plugins
         shell: bash
-        run: ls -la "$(dirname "$(which idat || which idat64)")"/../dbg/ || true
+        run: find "$(python -c "import idaapi; import os; print(os.path.dirname(idaapi.__file__))")" -iname '*bochs*' 2>/dev/null || echo "no bochs files found"
 
       - name: Run Bochs debugger test
         shell: bash
