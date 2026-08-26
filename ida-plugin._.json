@@ -7,7 +7,9 @@
     "idaVersions": ">=9.0",
     "platforms": [
       "windows-x86_64",
+      "windows-aarch64",
       "linux-x86_64",
+      "linux-aarch64",
       "macos-aarch64"
     ],
     "description": "Bundles pre-built Bochs binaries and Windows DLL stubs so that IDA's Bochs debugger works out of the box with no manual Bochs installation.",

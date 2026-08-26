@@ -71,6 +71,12 @@ jobs:
             platform: linux-aarch64
           - os: windows-latest
             platform: windows-x86_64
+            msystem: MINGW64
+            msys2_packages: mingw-w64-x86_64-gcc
+          - os: windows-11-arm
+            platform: windows-aarch64
+            msystem: CLANGARM64
+            msys2_packages: mingw-w64-clang-aarch64-cc
           - os: macos-latest
             platform: macos-aarch64
 
@@ -83,10 +89,10 @@ jobs:
         if: runner.os == 'Windows'
         uses: msys2/setup-msys2@v2
         with:
-          msystem: MINGW64
+          msystem: ${{ matrix.msystem }}
           update: true
           install: >-
-            mingw-w64-x86_64-gcc
+            ${{ matrix.msys2_packages }}
             make
             diffutils
             flex
@@ -124,6 +130,16 @@ jobs:
             $BOCHS_CONFIGURE_COMMON
           make -j$(nproc)
           make install
+
+      - name: Verify Bochs binary (Unix)
+        if: runner.os != 'Windows'
+        shell: bash
+        run: ./bochs-install/bin/bochs --help
+
+      - name: Verify Bochs binary (Windows)
+        if: runner.os == 'Windows'
+        shell: bash
+        run: ./bochs-install/bin/bochs.exe --help
 
       - name: Collect artifacts (Unix)
         if: runner.os != 'Windows'
@@ -261,16 +277,21 @@ jobs:
         include:
           - name: Linux
             os: ubuntu-latest
-            ida_slug: "release/9.3/ida-pro/ida-pro_93_x64linux.run"
+            ida_slug: "ida-pro:9.4:x64linux"
           - name: Linux ARM
             os: ubuntu-24.04-arm
-            ida_slug: "ida-pro:9.3:armlinux"
+            ida_slug: "ida-pro:9.4:armlinux"
           - name: Windows
             os: windows-latest
-            ida_slug: "release/9.3/ida-pro/ida-pro_93_x64win.exe"
+            ida_slug: "ida-pro:9.4:x64win"
+          # IDA 9.4 does not ship the bochs debugger plugin for ARM64 Windows.
+          # Re-enable when a future IDA release includes plugins/bochs/bochsys.dll.
+          # - name: Windows ARM
+          #   os: windows-11-arm
+          #   ida_slug: "ida-pro:9.4:windows:arm64"
           - name: macOS
             os: macos-latest
-            ida_slug: "release/9.3/ida-pro/ida-pro_93_armmac.app.zip"
+            ida_slug: "ida-pro:9.4:armmac"
 
     steps:
       - uses: actions/checkout@v4
@@ -288,7 +309,7 @@ jobs:
         with:
           name: ida-bochs-binaries
 
-      - name: Install IDA Pro 9.3
+      - name: Install IDA Pro 9.4
         shell: bash
         run: |
           uvx --from ida-hcli hcli --disable-updates ida install \

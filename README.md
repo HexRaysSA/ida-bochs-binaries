@@ -56,6 +56,10 @@ ida-bochs-binaries/
 │   │   ├── bochsdbg.exe
 │   │   ├── BIOS-bochs-latest
 │   │   └── VGABIOS-lgpl-latest
+│   ├── windows-aarch64/
+│   │   ├── bochsdbg.exe
+│   │   ├── BIOS-bochs-latest
+│   │   └── VGABIOS-lgpl-latest
 │   └── macos-aarch64/
 │       ├── bin/bochs
 │       └── share/bochs/
@@ -66,6 +70,18 @@ ida-bochs-binaries/
     ├── kernel32.dll
     └── ... (14 stub DLLs total)
 ```
+
+## Platform Support
+
+| Platform | Bochs Binary | IDA Bochs Debugger |
+|----------|-------------|-------------------|
+| Linux x86_64 | Included | Supported |
+| Linux AArch64 | Included | Supported |
+| Windows x86_64 | Included | Supported |
+| Windows AArch64 | Included | Not yet shipped by IDA (as of 9.4) |
+| macOS AArch64 | Included | Supported |
+
+On Windows ARM64, this plugin installs the Bochs binary and sets `BXSHARE` correctly, but IDA 9.4 does not ship the bochs debugger plugin (`plugins/bochs/bochsys.dll`, `cfg/dbg_bochs.cfg`, `loaders/bochsrc.dll`) for that platform. The Bochs debugger will not be available until a future IDA release adds ARM64 Windows support for these components.
 
 ## Building
 
