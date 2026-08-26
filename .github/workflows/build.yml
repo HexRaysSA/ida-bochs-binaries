@@ -243,16 +243,16 @@ jobs:
         include:
           - name: Linux
             os: ubuntu-latest
-            ida_slug: "ida-pro:9.4:linux:x64"
+            ida_slug: "ida-pro:9.4:x64linux"
           - name: Linux ARM
             os: ubuntu-24.04-arm
             ida_slug: "ida-pro:9.4:armlinux"
           - name: Windows
             os: windows-latest
-            ida_slug: "ida-pro:9.4:windows:x64"
+            ida_slug: "ida-pro:9.4:x64win"
           - name: Windows ARM
             os: windows-11-arm
-            ida_slug: "ida-pro:9.4:armwin"
+            ida_slug: "ida-pro:9.4:windows:arm64"
           - name: macOS
             os: macos-latest
             ida_slug: "ida-pro:9.4:armmac"
