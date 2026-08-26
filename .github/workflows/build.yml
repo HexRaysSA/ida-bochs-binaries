@@ -301,13 +301,11 @@ jobs:
         shell: bash
         continue-on-error: true
         run: |
-          python -c "
-          import idapro, pathlib, sys
-          d = pathlib.Path(sys.modules['idapro'].__file__).resolve().parent.parent
-          print(f'IDA dir: {d}')
-          for p in sorted(d.rglob('*bochs*')):
-              print(f'  {p.relative_to(d)}')
-          "
+          for d in /opt/ida* /Applications/IDA* "$PROGRAMFILES"/IDA*; do
+            [ -d "$d" ] || continue
+            echo "=== $d ==="
+            find "$d" -maxdepth 3 -iname '*bochs*'
+          done
 
       - name: Run Bochs debugger test
         shell: bash
