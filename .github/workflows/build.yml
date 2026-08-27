@@ -336,7 +336,7 @@ jobs:
           "${{ runner.temp }}/app/ida${{ matrix.idapyswitch }}" \
             --force-path $( \
               "$HOME/.idapro/venv/${{ matrix.venv_python }}" -c \
-                'import sys,sysconfig,os;print(__import__("_winapi").GetModuleFileName(sys.dllhandle) if sys.platform=="win32" else os.path.join(sysconfig.get_config_var("LIBDIR"),sysconfig.get_config_var("INSTSONAME")))' \
+                'import sys,sysconfig,pathlib;ld=pathlib.Path(sysconfig.get_config_var("LIBDIR"));print(__import__("_winapi").GetModuleFileName(sys.dllhandle) if sys.platform=="win32" else next(iter(list(ld.glob("libpython*"))+list(ld.glob("python3*.dll")))))' \
             )
 
       - name: Set IDAPYTHON_VENV_EXECUTABLE
