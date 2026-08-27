@@ -174,7 +174,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Setup uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
 
       - name: Generate stub DLLs
         run: uv run --with lief scripts/generate_stubs.py
@@ -200,7 +200,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Setup uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
 
       - name: Run tests
         run: uv run --with lief --with pytest pytest tests/ -v
@@ -215,7 +215,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Setup uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4
@@ -249,7 +249,7 @@ jobs:
           zip -r ../ida-bochs-binaries.zip *
 
       - name: Lint plugin
-        run: uvx --from ida-hcli hcli --disable-updates plugin lint stage/
+        run: uv run --with ida-hcli hcli --disable-updates plugin lint stage/
 
       - name: Upload plugin archive
         uses: actions/upload-artifact@v4
@@ -277,55 +277,80 @@ jobs:
         include:
           - name: Linux
             os: ubuntu-latest
-            ida_slug: "ida-pro:9.4:x64linux"
+            idapyswitch: "/idapyswitch"
           - name: Linux ARM
             os: ubuntu-24.04-arm
-            ida_slug: "ida-pro:9.4:armlinux"
+            idapyswitch: "/idapyswitch"
           - name: Windows
             os: windows-latest
-            ida_slug: "ida-pro:9.4:x64win"
+            idapyswitch: "/idapyswitch.exe"
           # IDA 9.4 does not ship the bochs debugger plugin for ARM64 Windows.
           # Re-enable when a future IDA release includes plugins/bochs/bochsys.dll.
           # - name: Windows ARM
           #   os: windows-11-arm
-          #   ida_slug: "ida-pro:9.4:windows:arm64"
+          #   idapyswitch: "/idapyswitch.exe"
           - name: macOS
             os: macos-latest
-            ida_slug: "ida-pro:9.4:armmac"
+            idapyswitch: "/Contents/MacOS/idapyswitch"
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Setup uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          python-version: "3.12"
 
       - name: Download plugin archive
         uses: actions/download-artifact@v4
         with:
           name: ida-bochs-binaries
 
-      - name: Install IDA Pro 9.4
+      - name: Install IDA
         shell: bash
         run: |
-          uvx --from ida-hcli hcli --disable-updates ida install \
-            --download-id "${{ matrix.ida_slug }}" \
-            --license-id "${{ secrets.IDA_LICENSE_ID }}" \
-            --set-default --accept-eula --yes
+          uv run --with ida-hcli hcli --disable-updates \
+            ida install \
+            --download-id "ida-pro:9.4" \
+            --license-id "$IDA_LICENSE_ID" \
+            --install-dir="${{ runner.temp }}/app/ida" \
+            --accept-eula \
+            --set-default \
+            --yes
         env:
           HCLI_API_KEY: ${{ secrets.HCLI_API_KEY }}
+          IDA_LICENSE_ID: ${{ secrets.IDA_LICENSE_ID }}
+
+      - name: Create venv for IDA
+        shell: bash
+        run: uv venv "$HOME/.idapro/venv"
+
+      - name: Register Python interpreter with IDA
+        shell: bash
+        run: |
+          "${{ runner.temp }}/app/ida${{ matrix.idapyswitch }}" \
+            --force-path $( \
+              uv run --python "$HOME/.idapro/venv" python -c \
+                'import sys,sysconfig,pathlib;print(__import__("_winapi").GetModuleFileName(sys.dllhandle) if sys.platform=="win32" else next(pathlib.Path(sysconfig.get_config_var("LIBDIR")).glob("libpython*")))' \
+            )
+
+      - name: Set IDAPYTHON_VENV_EXECUTABLE
+        shell: bash
+        run: |
+          VENV_PYTHON="$(uv python find "$HOME/.idapro/venv")"
+          if [[ "$RUNNER_OS" == "Windows" ]]; then
+            echo "IDAPYTHON_VENV_EXECUTABLE=$(cygpath -w "$VENV_PYTHON")" >> "$GITHUB_ENV"
+          else
+            echo "IDAPYTHON_VENV_EXECUTABLE=$VENV_PYTHON" >> "$GITHUB_ENV"
+          fi
 
       - name: Install plugin
         shell: bash
-        run: |
-          uvx --from ida-hcli hcli --disable-updates plugin install ida-bochs-binaries.zip
+        run: uv run --with ida-hcli hcli --disable-updates plugin install ida-bochs-binaries.zip
 
-      - name: Install idalib
-        run: uv pip install --system idapro ida-domain
+      - name: Install idalib packages
+        shell: bash
+        run: uv pip install --python "$HOME/.idapro/venv" idapro ida-domain
 
       - name: Download test sample
         shell: bash
@@ -336,4 +361,4 @@ jobs:
       - name: Run Bochs debugger test
         shell: bash
         run: |
-          python scripts/idalib-dbg-bochs.py "${{ runner.temp }}/pma-lab01-01.exe_"
+          uv run --python "$HOME/.idapro/venv" python scripts/idalib-dbg-bochs.py "${{ runner.temp }}/pma-lab01-01.exe_"
