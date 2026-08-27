@@ -278,25 +278,20 @@ jobs:
           - name: Linux
             os: ubuntu-latest
             idapyswitch: "/idapyswitch"
-            venv_python: "bin/python3"
           - name: Linux ARM
             os: ubuntu-24.04-arm
             idapyswitch: "/idapyswitch"
-            venv_python: "bin/python3"
           - name: Windows
             os: windows-latest
             idapyswitch: "/idapyswitch.exe"
-            venv_python: "Scripts/python.exe"
           # IDA 9.4 does not ship the bochs debugger plugin for ARM64 Windows.
           # Re-enable when a future IDA release includes plugins/bochs/bochsys.dll.
           # - name: Windows ARM
           #   os: windows-11-arm
           #   idapyswitch: "/idapyswitch.exe"
-          #   venv_python: "Scripts/python.exe"
           - name: macOS
             os: macos-latest
             idapyswitch: "/Contents/MacOS/idapyswitch"
-            venv_python: "bin/python3"
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -335,17 +330,18 @@ jobs:
         run: |
           "${{ runner.temp }}/app/ida${{ matrix.idapyswitch }}" \
             --force-path $( \
-              "$HOME/.idapro/venv/${{ matrix.venv_python }}" -c \
+              uv run --python "$HOME/.idapro/venv" python -c \
                 'import sys,sysconfig,pathlib;print(__import__("_winapi").GetModuleFileName(sys.dllhandle) if sys.platform=="win32" else next(pathlib.Path(sysconfig.get_config_var("LIBDIR")).glob("libpython*")))' \
             )
 
       - name: Set IDAPYTHON_VENV_EXECUTABLE
         shell: bash
         run: |
+          VENV_PYTHON="$(uv python find "$HOME/.idapro/venv")"
           if [[ "$RUNNER_OS" == "Windows" ]]; then
-            echo "IDAPYTHON_VENV_EXECUTABLE=$(cygpath -w "$HOME/.idapro/venv/${{ matrix.venv_python }}")" >> "$GITHUB_ENV"
+            echo "IDAPYTHON_VENV_EXECUTABLE=$(cygpath -w "$VENV_PYTHON")" >> "$GITHUB_ENV"
           else
-            echo "IDAPYTHON_VENV_EXECUTABLE=$HOME/.idapro/venv/${{ matrix.venv_python }}" >> "$GITHUB_ENV"
+            echo "IDAPYTHON_VENV_EXECUTABLE=$VENV_PYTHON" >> "$GITHUB_ENV"
           fi
 
       - name: Install plugin
@@ -354,7 +350,7 @@ jobs:
 
       - name: Install idalib packages
         shell: bash
-        run: uv pip install --python "$HOME/.idapro/venv/${{ matrix.venv_python }}" idapro ida-domain
+        run: uv pip install --python "$HOME/.idapro/venv" idapro ida-domain
 
       - name: Download test sample
         shell: bash
@@ -365,4 +361,4 @@ jobs:
       - name: Run Bochs debugger test
         shell: bash
         run: |
-          "$HOME/.idapro/venv/${{ matrix.venv_python }}" scripts/idalib-dbg-bochs.py "${{ runner.temp }}/pma-lab01-01.exe_"
+          uv run --python "$HOME/.idapro/venv" python scripts/idalib-dbg-bochs.py "${{ runner.temp }}/pma-lab01-01.exe_"
