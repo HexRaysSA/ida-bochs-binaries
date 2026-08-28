@@ -352,13 +352,20 @@ jobs:
         shell: bash
         run: uv pip install --python "$HOME/.idapro/venv" idapro ida-domain
 
-      - name: Download test sample
+      - name: Download test samples
         shell: bash
         run: |
           curl -L -o "${{ runner.temp }}/pma-lab01-01.exe_" \
             "https://raw.githubusercontent.com/mandiant/capa-testfiles/master/Practical%20Malware%20Analysis%20Lab%2001-01.exe_"
+          curl -L -o "${{ runner.temp }}/pma-lab21-01.exe_" \
+            "https://raw.githubusercontent.com/mandiant/capa-testfiles/master/Practical%20Malware%20Analysis%20Lab%2021-01.exe_"
 
-      - name: Run Bochs debugger test
+      - name: Run Bochs debugger test (PE32)
         shell: bash
         run: |
           uv run --python "$HOME/.idapro/venv" python scripts/idalib-dbg-bochs.py "${{ runner.temp }}/pma-lab01-01.exe_"
+
+      - name: Run Bochs debugger test (PE32+)
+        shell: bash
+        run: |
+          uv run --python "$HOME/.idapro/venv" python scripts/idalib-dbg-bochs.py "${{ runner.temp }}/pma-lab21-01.exe_"

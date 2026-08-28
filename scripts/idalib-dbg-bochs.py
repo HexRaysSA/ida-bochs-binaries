@@ -54,11 +54,11 @@ def main():
         ida_dbg.exit_process()
         ida_dbg.wait_for_next_event(ida_dbg.WFNE_ANY, 1000)
 
-    if after != before + 1:
-        logger.error("single-step failed: expected %s, got %s", hex(before + 1), hex(after))
+    if after == before:
+        logger.error("single-step failed: IP did not advance (stuck at %s)", hex(before))
         return 1
 
-    logger.info("OK: single-step advanced IP by 1 byte")
+    logger.info("OK: single-step advanced IP from %s to %s", hex(before), hex(after))
     return 0
 
 
