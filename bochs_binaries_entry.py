@@ -70,31 +70,38 @@ def _setup_bxshare():
     return True
 
 
+_original_idabxpathmap = os.environ.get("IDABXPATHMAP", "")
+
+
 def _setup_idabxpathmap():
     if sys.platform == "win32":
         return True
 
+    import ida_ida
+
     stubs_base = os.path.join(PLUGIN_DIR, "data", "stubs")
-    entries = []
 
-    win32_stubs = os.path.join(stubs_base, "windows")
-    if os.path.isdir(win32_stubs):
-        entries.append(win32_stubs + "/=c:/windows/system32/")
-        entries.append(win32_stubs + "/=c:/windows/syswow64/")
+    if ida_ida.inf_is_64bit():
+        stubs_dir = os.path.join(stubs_base, "windows64")
+    else:
+        stubs_dir = os.path.join(stubs_base, "windows")
 
-    win64_stubs = os.path.join(stubs_base, "windows64")
-    if os.path.isdir(win64_stubs):
-        entries.append(win64_stubs + "/=c:/windows/system32/")
-
-    if not entries:
+    if not os.path.isdir(stubs_dir):
+        stubs_dir = os.path.join(stubs_base, "windows")
+    if not os.path.isdir(stubs_dir):
         logger.debug("no stub directories found, PE mode may not work on this platform")
         return False
 
-    existing = os.environ.get("IDABXPATHMAP", "")
-    new_value = ";".join(filter(None, [existing] + entries))
+    entries = [stubs_dir + "/=c:/windows/system32/"]
+
+    new_value = ";".join(filter(None, [_original_idabxpathmap] + entries))
     os.environ["IDABXPATHMAP"] = new_value
     logger.debug("IDABXPATHMAP=%s", os.environ["IDABXPATHMAP"])
     return True
+
+
+def _on_open_idb(nw_code, is_old_database):
+    _setup_idabxpathmap()
 
 
 class bochs_binaries_plugmod_t(ida_idaapi.plugmod_t):
@@ -116,7 +123,7 @@ class bochs_binaries_plugin_t(ida_idaapi.plugin_t):
         if not _setup_bxshare():
             return ida_idaapi.PLUGIN_SKIP
 
-        _setup_idabxpathmap()
+        ida_idaapi.notify_when(ida_idaapi.NW_OPENIDB, _on_open_idb)
 
         logger.info("bochs binaries plugin loaded")
         return bochs_binaries_plugmod_t()
