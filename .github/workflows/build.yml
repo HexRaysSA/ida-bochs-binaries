@@ -148,7 +148,7 @@ jobs:
           mkdir -p "artifacts/bin" "artifacts/share/bochs"
           cp "bochs-install/bin/bochs" "artifacts/bin/"
           cp "bochs-install/share/bochs/BIOS-bochs-latest" "artifacts/share/bochs/"
-          cp "bochs-install/share/bochs/VGABIOS-lgpl-latest" "artifacts/share/bochs/"
+          cp "bochs-install/share/bochs/VGABIOS-lgpl-latest.bin" "artifacts/share/bochs/"
 
       - name: Collect artifacts (Windows)
         if: runner.os == 'Windows'
@@ -158,7 +158,7 @@ jobs:
           # IDA expects "bochsdbg.exe" on Windows, not "bochs.exe"
           cp "bochs-install/bin/bochs.exe" "artifacts/bochsdbg.exe"
           cp "bochs-install/share/bochs/BIOS-bochs-latest" "artifacts/"
-          cp "bochs-install/share/bochs/VGABIOS-lgpl-latest" "artifacts/"
+          cp "bochs-install/share/bochs/VGABIOS-lgpl-latest.bin" "artifacts/"
 
       - name: Upload Bochs artifacts
         uses: actions/upload-artifact@v4
@@ -311,7 +311,7 @@ jobs:
         run: |
           uv run --with ida-hcli hcli --disable-updates \
             ida install \
-            --download-id "ida-pro:9.4" \
+            --download-id "ida-pro:9.5" \
             --license-id "$IDA_LICENSE_ID" \
             --install-dir="${{ runner.temp }}/app/ida" \
             --accept-eula \
