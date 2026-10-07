@@ -279,12 +279,15 @@ jobs:
           - name: Linux
             os: ubuntu-latest
             idapyswitch: "/idapyswitch"
+            download_id: "beta/ida-pro/9.5-beta-1/ida-pro_95_x64linux.run"
           - name: Linux ARM
             os: ubuntu-24.04-arm
             idapyswitch: "/idapyswitch"
+            download_id: "beta/ida-pro/9.5-beta-1/ida-pro_95_armlinux.run"
           - name: Windows
             os: windows-latest
             idapyswitch: "/idapyswitch.exe"
+            download_id: "beta/ida-pro/9.5-beta-1/ida-pro_95_x64win.exe"
           # IDA 9.4 does not ship the bochs debugger plugin for ARM64 Windows.
           # Re-enable when a future IDA release includes plugins/bochs/bochsys.dll.
           # - name: Windows ARM
@@ -293,6 +296,7 @@ jobs:
           - name: macOS
             os: macos-latest
             idapyswitch: "/Contents/MacOS/idapyswitch"
+            download_id: "beta/ida-pro/9.5-beta-1/ida-pro_95_armmac.app.zip"
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -312,7 +316,7 @@ jobs:
         run: |
           uv run --with ida-hcli hcli --disable-updates \
             ida install \
-            --download-id "ida-pro:9.5" \
+            --download-id "${{ matrix.download_id }}" \
             --license-id "$IDA_LICENSE_ID" \
             --install-dir="${{ runner.temp }}/app/ida" \
             --accept-eula \
