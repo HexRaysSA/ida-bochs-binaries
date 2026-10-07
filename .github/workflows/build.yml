@@ -36,6 +36,7 @@ env:
     --enable-logging
     --enable-usb
     --enable-usb-ohci
+    --disable-usb-debugger
     --enable-clgd54xx
     --enable-avx
     --disable-docbook
