@@ -2,7 +2,7 @@
 
 An IDA plugin that bundles pre-built Bochs emulator binaries and Windows DLL stubs so that IDA's Bochs debugger works out of the box with no manual Bochs installation. Install the plugin, start debugging.
 
-Version 2.x bundles Bochs 3.1 and supports IDA 9.5 and later. IDA 9.5 starts Bochs with the `-debugger` flag, which only Bochs 3.x accepts. For IDA 9.0 to 9.4, use version 1.x, which bundles Bochs 2.8. The plugin manager selects the correct version for the running IDA.
+Version 2.x bundles Bochs 3.1 and supports IDA 9.5 and later. For IDA 9.0 to 9.4, use version 1.x, which bundles Bochs 2.8. The plugin manager selects the correct version for the running IDA.
 
 ## Background: How IDA Finds Bochs
 
