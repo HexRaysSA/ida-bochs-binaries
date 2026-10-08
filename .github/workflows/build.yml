@@ -98,6 +98,14 @@ jobs:
             flex
             bison
 
+      # Checkout can leave the debugger's .y/.l sources newer than their
+      # pre-generated outputs. make then regenerates parser.h while compiling
+      # lexer.c in parallel, and lexer.c includes an unrelated system parser.h.
+      - name: Mark pre-generated debugger parser up to date
+        shell: bash
+        working-directory: vendor/bochs/bochs/bx_debug
+        run: touch lexer.c parser.cc parser.h
+
       - name: Configure and build (Linux)
         if: runner.os == 'Linux'
         working-directory: vendor/bochs/bochs
