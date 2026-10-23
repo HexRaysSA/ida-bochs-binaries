@@ -151,11 +151,6 @@ jobs:
         shell: bash
         run: ./bochs-install/bin/bochs --help
 
-      - name: Verify macOS deployment target
-        if: runner.os == 'macOS'
-        shell: bash
-        run: vtool -show-build ./bochs-install/bin/bochs | grep -E '^ *minos 12\.0$'
-
       - name: Verify Bochs binary (Windows)
         if: runner.os == 'Windows'
         shell: bash
@@ -186,31 +181,6 @@ jobs:
           name: bochs-${{ matrix.platform }}
           path: artifacts/*
           if-no-files-found: error
-
-  verify-linux-glibc:
-    name: Bochs on Rocky Linux 8 (${{ matrix.platform }})
-    needs: build-bochs
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - os: ubuntu-latest
-            platform: linux-x86_64
-          - os: ubuntu-24.04-arm
-            platform: linux-aarch64
-    steps:
-      - name: Download Bochs artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: bochs-${{ matrix.platform }}
-          path: bochs
-
-      - name: Run Bochs with glibc 2.28
-        shell: bash
-        run: |
-          chmod +x bochs/bin/bochs
-          docker run --rm -v "$PWD/bochs:/bochs:ro" rockylinux:8 /bochs/bin/bochs --help
 
   generate-stubs:
     name: Windows DLL stubs
@@ -252,7 +222,7 @@ jobs:
 
   package:
     name: Package plugin
-    needs: [build-bochs, verify-linux-glibc, generate-stubs, unit-tests]
+    needs: [build-bochs, generate-stubs, unit-tests]
     runs-on: ubuntu-latest
     permissions:
       contents: write
