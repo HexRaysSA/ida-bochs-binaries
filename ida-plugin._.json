@@ -3,7 +3,7 @@
   "plugin": {
     "name": "ida-bochs-binaries",
     "entryPoint": "bochs_binaries_entry.py",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "idaVersions": ">=9.0,<9.5",
     "platforms": [
       "windows-x86_64",
