@@ -193,7 +193,7 @@ jobs:
         uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
 
       - name: Generate stub DLLs
-        run: uv run --with lief scripts/generate_stubs.py
+        run: uv run scripts/generate_stubs.py
 
       - name: Upload 32-bit stub artifacts
         uses: actions/upload-artifact@v4
@@ -219,7 +219,7 @@ jobs:
         uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
 
       - name: Run tests
-        run: uv run --with lief --with pytest pytest tests/ -v
+        run: uv run --with pytest pytest tests/ -v
 
   package:
     name: Package plugin
