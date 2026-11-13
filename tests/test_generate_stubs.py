@@ -16,7 +16,7 @@ from generate_stubs import (
     build_stub_dll,
     read_stub,
 )
-from snapshot_exports import ARCH_NAMES, assign_ordinals, parse_spec
+from snapshot_exports import ARCH_NAMES, add_extra_exports, assign_ordinals, parse_spec
 
 SAMPLE_EXPORTS = [
     {"ordinal": 1, "name": "CreateFileA"},
@@ -178,3 +178,16 @@ def test_snapshot_noname_and_forwards():
     assert by_name["EncodePointer"]["forward"] == "NTDLL.RtlEncodePointer"
     assert by_name["Spaced"]["forward"] == "kernel32.lstrcpynA"
     assert "forward" not in by_name["Local"]
+
+
+def test_extra_exports_fill_only_free_ordinals_and_names():
+    entries = [{"ordinal": 390, "name": "ImageList_SetColorTable", "noname": True}]
+    extras = [
+        {"ordinal": 390, "noname": True},
+        {"ordinal": 392, "noname": True},
+        {"ordinal": 394, "name": "QuerySystemGestureStatus"},
+        {"ordinal": 500, "name": "ImageList_SetColorTable"},
+    ]
+    merged = add_extra_exports(entries, extras)
+    assert [e["ordinal"] for e in merged] == [390, 392, 394]
+    assert merged[0]["name"] == "ImageList_SetColorTable"
