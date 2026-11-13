@@ -16,7 +16,7 @@ from generate_stubs import (
     build_stub_dll,
     read_stub,
 )
-from snapshot_exports import ARCH_NAMES, add_extra_exports, assign_ordinals, parse_spec
+from snapshot_exports import keep_forward, merge_exports, read_exports
 
 SAMPLE_EXPORTS = [
     {"ordinal": 1, "name": "CreateFileA"},
@@ -136,58 +136,43 @@ def test_unique_image_bases_no_collision(tmp_path):
     assert not set(bases_32) & set(bases_64)
 
 
-SPEC = """
-# comment
-2 stdcall SysAllocString(wstr)
-@ stdcall Alpha(long)
-1 stdcall -noname Hidden(ptr)
-@ stdcall -arch=win64 Only64(ptr)
-@ stdcall -arch=!win64 Not64()
-5 stdcall -noname -i386 Old386()
-@ stdcall EncodePointer(ptr) NTDLL.RtlEncodePointer
-@ stdcall Spaced (ptr str long) kernel32.lstrcpynA
-@ stdcall Local(long) local_impl
-7 stub -noname @
-"""
 
-
-def _snapshot(arch):
-    return assign_ordinals(parse_spec(SPEC, ARCH_NAMES[arch]))
-
-
-def test_snapshot_assigns_free_ordinals_like_winebuild():
-    by_name = {e.get("name"): e["ordinal"] for e in _snapshot("x86")}
-    # "@" entries fill the free ordinals from the lowest one up
-    assert by_name["SysAllocString"] == 2
-    assert by_name["Alpha"] == 3
-
-
-def test_snapshot_arch_filters():
-    x86 = {e.get("name") for e in _snapshot("x86")}
-    x64 = {e.get("name") for e in _snapshot("x64")}
-    assert "Only64" in x64 and "Only64" not in x86
-    assert "Not64" in x86 and "Not64" not in x64
-    assert "Old386" in x86 and "Old386" not in x64
-
-
-def test_snapshot_noname_and_forwards():
-    entries = {e["ordinal"]: e for e in _snapshot("x86")}
-    assert entries[1] == {"ordinal": 1, "name": "Hidden", "noname": True}
-    assert entries[7] == {"ordinal": 7, "noname": True}
-    by_name = {e.get("name"): e for e in entries.values()}
-    assert by_name["EncodePointer"]["forward"] == "NTDLL.RtlEncodePointer"
-    assert by_name["Spaced"]["forward"] == "kernel32.lstrcpynA"
-    assert "forward" not in by_name["Local"]
-
-
-def test_extra_exports_fill_only_free_ordinals_and_names():
-    entries = [{"ordinal": 390, "name": "ImageList_SetColorTable", "noname": True}]
-    extras = [
-        {"ordinal": 390, "noname": True},
-        {"ordinal": 392, "noname": True},
-        {"ordinal": 394, "name": "QuerySystemGestureStatus"},
-        {"ordinal": 500, "name": "ImageList_SetColorTable"},
+@pytest.mark.parametrize("pe64", [False, True])
+def test_snapshot_reads_exports_back(tmp_path, pe64):
+    entries = [
+        {"ordinal": 2, "name": "SysAllocString"},
+        {"ordinal": 5, "name": "Hidden", "noname": True},
+        {"ordinal": 7, "name": "EncodePointer", "forward": "NTDLL.RtlEncodePointer"},
     ]
-    merged = add_extra_exports(entries, extras)
-    assert [e["ordinal"] for e in merged] == [390, 392, 394]
-    assert merged[0]["name"] == "ImageList_SetColorTable"
+    out = tmp_path / "test.dll"
+    build_stub_dll("test.dll", entries, out, 0x60000000, pe64=pe64, stub_dlls={"ntdll"})
+    machine, exports = read_exports(out.read_bytes())
+    assert machine == (0x8664 if pe64 else 0x14C)
+    assert exports == [
+        {"ordinal": 2, "name": "SysAllocString"},
+        {"ordinal": 5, "noname": True},
+        {"ordinal": 7, "name": "EncodePointer", "forward": "NTDLL.RtlEncodePointer"},
+    ]
+
+
+def test_snapshot_keep_forward():
+    stub_dlls = {"ntdll", "kernel32", "kernelbase"}
+    assert keep_forward("NTDLL.RtlAllocateHeap", stub_dlls)
+    assert not keep_forward("kernelbase.StrChrA", stub_dlls)
+    assert not keep_forward("api-ms-win-core-heap-l1-1-0.HeapAlloc", stub_dlls)
+
+
+def test_snapshot_merge_first_file_wins():
+    v6 = [{"ordinal": 17, "name": "InitCommonControls"},
+          {"ordinal": 236, "noname": True}]
+    v5 = [{"ordinal": 17, "name": "Other"},
+          {"ordinal": 18, "name": "InitCommonControls"},
+          {"ordinal": 300, "name": "Extra", "forward": "kernelbase.Extra"},
+          {"ordinal": 301, "name": "Heap", "forward": "NTDLL.RtlAllocateHeap"}]
+    merged = merge_exports([v6, v5], {"ntdll", "kernelbase"})
+    assert merged == [
+        {"ordinal": 17, "name": "InitCommonControls"},
+        {"ordinal": 236, "noname": True},
+        {"ordinal": 300, "name": "Extra"},
+        {"ordinal": 301, "name": "Heap", "forward": "NTDLL.RtlAllocateHeap"},
+    ]
