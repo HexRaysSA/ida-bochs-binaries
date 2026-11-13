@@ -7,3 +7,4 @@
 /.artifacts
 /.tmp-act-artifact
 /.tmp-act-plugin
+/.cache

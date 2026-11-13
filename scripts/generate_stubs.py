@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Generate minimal PE stub DLLs (32-bit and 64-bit) from a local export snapshot.
 
-Reads exports from data/stubs/exports.json (snapshotted from Wine 9.0 .spec
-files by scripts/snapshot_exports.py) and creates tiny DLLs containing only
+Reads exports from data/stubs/exports.json (snapshotted from the Windows 11
+DLLs by scripts/snapshot_exports.py) and creates tiny DLLs containing only
 an export directory. IDA's Bochs PE mode reads only the export table from
 each DLL — no actual code is needed.
 
@@ -28,7 +28,7 @@ OUTPUT_DIR_32 = Path(__file__).resolve().parent.parent / "data" / "stubs" / "win
 OUTPUT_DIR_64 = Path(__file__).resolve().parent.parent / "data" / "stubs" / "windows64"
 
 DLL_IMAGE_BASE_START_32 = 0x60000000
-DLL_IMAGE_BASE_START_64 = 0x180000000
+DLL_IMAGE_BASE_START_64 = 0x40000000
 DLL_IMAGE_BASE_STRIDE = 0x01000000
 
 FILE_ALIGNMENT = 0x200

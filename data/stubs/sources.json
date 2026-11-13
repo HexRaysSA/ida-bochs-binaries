@@ -1,0 +1,1953 @@
+{
+  "windows": "11-24H2",
+  "x86": {
+    "ntdll": [
+      {
+        "file": "ntdll.dll",
+        "path": "Windows\\SysWOW64\\ntdll.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2894424539,
+        "size_of_image": 1802240,
+        "sha256": "e7d211ae20430e328880cc260380b3f593f869ba8366b1212655aea0ff12e785"
+      }
+    ],
+    "kernel32": [
+      {
+        "file": "kernel32.dll",
+        "path": "Windows\\SysWOW64\\kernel32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3960251792,
+        "size_of_image": 983040,
+        "sha256": "02715fb4d7514de3ac58bd1996acc588ea6642bd67330fcf556e667ada8dc7b7"
+      }
+    ],
+    "user32": [
+      {
+        "file": "user32.dll",
+        "path": "Windows\\SysWOW64\\user32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 570526311,
+        "size_of_image": 1785856,
+        "sha256": "709f11a19b3348ab444d99653b6e60aacbd6e92b157cee8c6c7b82ad0f2fc083"
+      }
+    ],
+    "shell32": [
+      {
+        "file": "shell32.dll",
+        "path": "Windows\\SysWOW64\\shell32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2522704192,
+        "size_of_image": 6086656,
+        "sha256": "5f536b7c608dd88b5a6917553bb9e30577c7a156bddee2018f2a50a449ae9686"
+      }
+    ],
+    "shlwapi": [
+      {
+        "file": "shlwapi.dll",
+        "path": "Windows\\SysWOW64\\shlwapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2448335602,
+        "size_of_image": 307200,
+        "sha256": "e369e586e560cb6b3949909abd593a722b1aa214350af36ad382d9fe158bbf35"
+      }
+    ],
+    "urlmon": [
+      {
+        "file": "urlmon.dll",
+        "path": "Windows\\SysWOW64\\urlmon.dll",
+        "version": "11.00.26100.1",
+        "timestamp": 4229478650,
+        "size_of_image": 1712128,
+        "sha256": "12671cdc2a8634db59ff7aae02d58feb6c71f85ff29e3812222a4b593ab33aa9"
+      }
+    ],
+    "advapi32": [
+      {
+        "file": "advapi32.dll",
+        "path": "Windows\\SysWOW64\\advapi32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1623004228,
+        "size_of_image": 516096,
+        "sha256": "3d3d24e9822e572a01ae84840aedcaa0807b6db8e40a29a2313d09886cf7ba31"
+      }
+    ],
+    "mswsock": [
+      {
+        "file": "mswsock.dll",
+        "path": "Windows\\SysWOW64\\mswsock.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 576207894,
+        "size_of_image": 331776,
+        "sha256": "9f88e8497d1d7004771f11b6c3f6130647cb4ab50cb7a13b0ae39e9ac8ee9e4d"
+      }
+    ],
+    "wininet": [
+      {
+        "file": "wininet.dll",
+        "path": "Windows\\SysWOW64\\wininet.dll",
+        "version": "11.00.26100.1",
+        "timestamp": 2893873806,
+        "size_of_image": 2170880,
+        "sha256": "08b0a25cb9998e827fe633774e04332a6b74abe7a9d2d78272131daad097e25e"
+      }
+    ],
+    "msvcrt": [
+      {
+        "file": "msvcrt.dll",
+        "path": "Windows\\SysWOW64\\msvcrt.dll",
+        "version": "7.0.26100.1",
+        "timestamp": 2039676032,
+        "size_of_image": 815104,
+        "sha256": "bda093b4551b14ba07084c6b25f0b05119cd77d958b83ba63cf7022848d80a96"
+      }
+    ],
+    "gdi32": [
+      {
+        "file": "gdi32.dll",
+        "path": "Windows\\SysWOW64\\gdi32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1416711166,
+        "size_of_image": 139264,
+        "sha256": "d60466a2fa02e30823ed97462fe1fc3dfb22324fdf2051b4bdedccbe686e3bf2"
+      }
+    ],
+    "ole32": [
+      {
+        "file": "ole32.dll",
+        "path": "Windows\\SysWOW64\\ole32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 398402559,
+        "size_of_image": 1380352,
+        "sha256": "030e28e582ffe58b42e377351c8509606bca7030322da5a991fcaebf096e9904"
+      }
+    ],
+    "wsock32": [
+      {
+        "file": "wsock32.dll",
+        "path": "Windows\\SysWOW64\\wsock32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1667289626,
+        "size_of_image": 32768,
+        "sha256": "c8c95463a95af66a1d098ba991be26a86a860974c4cc25fac68eaf50a31aea29"
+      }
+    ],
+    "ws2_32": [
+      {
+        "file": "ws2_32.dll",
+        "path": "Windows\\SysWOW64\\ws2_32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 174919033,
+        "size_of_image": 393216,
+        "sha256": "7ba4c2cadc390a61edc346ad2760c14fee6dd39899f62eaafc1a4026882a7a8a"
+      }
+    ],
+    "comctl32": [
+      {
+        "file": "comctl32.dll",
+        "path": "WinSxS (KB5039239)",
+        "version": "6.10",
+        "timestamp": 2142023903,
+        "size_of_image": 2256896,
+        "sha256": "0c2bba92fd3be0f776ba39629a9a2eaca6026f39edd718e500236686aa1cc701"
+      },
+      {
+        "file": "comctl32.dll",
+        "path": "Windows\\SysWOW64\\comctl32.dll",
+        "version": "5.82",
+        "timestamp": 3297708565,
+        "size_of_image": 593920,
+        "sha256": "1d700516318740a7df1762cc6078c527282b00e2f53cfd6c5140ac5ccc6449eb"
+      }
+    ],
+    "comdlg32": [
+      {
+        "file": "comdlg32.dll",
+        "path": "Windows\\SysWOW64\\comdlg32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2082324093,
+        "size_of_image": 700416,
+        "sha256": "14a028d03c378ff937307caa73b22def979fef9beaaa39f07c5997353526d022"
+      }
+    ],
+    "oleaut32": [
+      {
+        "file": "oleaut32.dll",
+        "path": "Windows\\SysWOW64\\oleaut32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3983460992,
+        "size_of_image": 647168,
+        "sha256": "db0dddd65874d4fb84eb075dc665cd961c5280ff173bda00528e4453ab6c1c07"
+      }
+    ],
+    "version": [
+      {
+        "file": "version.dll",
+        "path": "Windows\\SysWOW64\\version.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 4015924288,
+        "size_of_image": 32768,
+        "sha256": "4f66b88731e84be8e1545eefc589a79e701cca426ce916e4ac9322e60ea9680b"
+      }
+    ],
+    "rpcrt4": [
+      {
+        "file": "rpcrt4.dll",
+        "path": "Windows\\SysWOW64\\rpcrt4.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 22987043,
+        "size_of_image": 757760,
+        "sha256": "aefdfde99497cd392a317a57f8681f38d967854c306def1500ced6da28f48b08"
+      }
+    ],
+    "secur32": [
+      {
+        "file": "secur32.dll",
+        "path": "Windows\\SysWOW64\\secur32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 60337125,
+        "size_of_image": 40960,
+        "sha256": "92003e665ad2c9061fb1b3b8211a311cc95097e49cde0c545cbe6a6b2c0e15d5"
+      }
+    ],
+    "crypt32": [
+      {
+        "file": "crypt32.dll",
+        "path": "Windows\\SysWOW64\\crypt32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 202208229,
+        "size_of_image": 1077248,
+        "sha256": "f96cfac3de3bea2f87554f5c7c6338270e0dc87a306f264d91c73541792f0660"
+      }
+    ],
+    "wintrust": [
+      {
+        "file": "wintrust.dll",
+        "path": "Windows\\SysWOW64\\wintrust.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1509453356,
+        "size_of_image": 393216,
+        "sha256": "dd4dcf77f72a25f6fac0f67fe63b3d749dc1804d40572f03922f2f8039875f21"
+      }
+    ],
+    "winhttp": [
+      {
+        "file": "winhttp.dll",
+        "path": "Windows\\SysWOW64\\winhttp.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2663957351,
+        "size_of_image": 888832,
+        "sha256": "d46036a16668d63d215d04731d06d4794e160b469b57d1082d92732dfc9933e0"
+      }
+    ],
+    "iphlpapi": [
+      {
+        "file": "iphlpapi.dll",
+        "path": "Windows\\SysWOW64\\IPHLPAPI.DLL",
+        "version": "10.0.26100.1",
+        "timestamp": 3256191242,
+        "size_of_image": 147456,
+        "sha256": "07d0ae023a6d8ada7d38465374b8f6d8812844879d556add65c9565631802d95"
+      }
+    ],
+    "setupapi": [
+      {
+        "file": "setupapi.dll",
+        "path": "Windows\\SysWOW64\\setupapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 386997745,
+        "size_of_image": 4485120,
+        "sha256": "71b55152f3783c2bb47c82209c66f31567f9ba86e384de0ecb403513b8ed582d"
+      }
+    ],
+    "userenv": [
+      {
+        "file": "userenv.dll",
+        "path": "Windows\\SysWOW64\\userenv.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 20496808,
+        "size_of_image": 126976,
+        "sha256": "0132c412c14ab79c2acf098eb8feca8027d0aba1bef3846f4f03b96aedcb6e5c"
+      }
+    ],
+    "psapi": [
+      {
+        "file": "psapi.dll",
+        "path": "Windows\\SysWOW64\\psapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 4142071670,
+        "size_of_image": 24576,
+        "sha256": "0609826f5f695a14218c9d033eb1e8aa5c680707e59790b77b8a2572fb6c6317"
+      }
+    ],
+    "imm32": [
+      {
+        "file": "imm32.dll",
+        "path": "Windows\\SysWOW64\\imm32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1694450808,
+        "size_of_image": 151552,
+        "sha256": "b9c2daad641df88849ba29beda4e6e88afc91ef2103c3572ce721ccc6d17347c"
+      }
+    ],
+    "kernelbase": [
+      {
+        "file": "kernelbase.dll",
+        "path": "Windows\\SysWOW64\\KernelBase.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 572216702,
+        "size_of_image": 2658304,
+        "sha256": "a16a5d1793d8adce5d5520ea039f29da355a443a4ac722edf6f46f6f5ec65cbe"
+      }
+    ],
+    "normaliz": [
+      {
+        "file": "normaliz.dll",
+        "path": "Windows\\SysWOW64\\normaliz.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 497225969,
+        "size_of_image": 28672,
+        "sha256": "acd855deff70acab87c914f793b695ebad8729ea53140bbfe0c27fedd7de7973"
+      }
+    ],
+    "sechost": [
+      {
+        "file": "sechost.dll",
+        "path": "Windows\\SysWOW64\\sechost.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1638209809,
+        "size_of_image": 536576,
+        "sha256": "a7a1a8a52a7fdb68e3754d7f313a016a0796bcb7bffd71e146d4e8d4a5a328c1"
+      }
+    ],
+    "netapi32": [
+      {
+        "file": "netapi32.dll",
+        "path": "Windows\\SysWOW64\\netapi32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3540163074,
+        "size_of_image": 86016,
+        "sha256": "37f6f8050c359edc8cbab9354d44396140342ba2ff37d62978a7b9845e0a1a28"
+      }
+    ],
+    "mpr": [
+      {
+        "file": "mpr.dll",
+        "path": "Windows\\SysWOW64\\mpr.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1433564423,
+        "size_of_image": 102400,
+        "sha256": "5a8ab1d973b9a9b331438738b914889e695fa4b443c1193a41b91ce3f7d9f390"
+      }
+    ],
+    "bcrypt": [
+      {
+        "file": "bcrypt.dll",
+        "path": "Windows\\SysWOW64\\bcrypt.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 4077114846,
+        "size_of_image": 106496,
+        "sha256": "82ea1c945a444fd8595afcc0e78216203fceda7c6bd2a8cf7b4794cdcba6d5e7"
+      }
+    ],
+    "ncrypt": [
+      {
+        "file": "ncrypt.dll",
+        "path": "Windows\\SysWOW64\\ncrypt.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3161107650,
+        "size_of_image": 155648,
+        "sha256": "58992eff69904f3bd7e630970caee31baa9ab0d214db8b3144dc2d41e7d822f8"
+      }
+    ],
+    "dbghelp": [
+      {
+        "file": "dbghelp.dll",
+        "path": "Windows\\SysWOW64\\dbghelp.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1764789072,
+        "size_of_image": 1961984,
+        "sha256": "acdc0ad092a96266d13bb53028f44f3af92e9d6daf810dde1b9f2ddc11ec1c42"
+      }
+    ],
+    "imagehlp": [
+      {
+        "file": "imagehlp.dll",
+        "path": "Windows\\SysWOW64\\imagehlp.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 4056020204,
+        "size_of_image": 110592,
+        "sha256": "a864774f23cf18b84c8debcc06c18551e5ab53c7d88fc1d93c7c413f2da6d448"
+      }
+    ],
+    "wtsapi32": [
+      {
+        "file": "wtsapi32.dll",
+        "path": "Windows\\SysWOW64\\wtsapi32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2044653886,
+        "size_of_image": 61440,
+        "sha256": "95d3f49c324e3549f2d3e4932d632e850c91b7f3f31e89c4d0c2d8290d61e732"
+      }
+    ],
+    "samlib": [
+      {
+        "file": "samlib.dll",
+        "path": "Windows\\SysWOW64\\samlib.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3173134927,
+        "size_of_image": 122880,
+        "sha256": "60eaef7b245939ebc02714bc67569b7aa2a9fa4e0795f31b91a71754e9287cdd"
+      }
+    ],
+    "authz": [
+      {
+        "file": "authz.dll",
+        "path": "Windows\\SysWOW64\\authz.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1531224637,
+        "size_of_image": 208896,
+        "sha256": "827f02c62c33434f2ec6322aa73f8555d2b9a6ebc13017527490271704123f0b"
+      }
+    ],
+    "credui": [
+      {
+        "file": "credui.dll",
+        "path": "Windows\\SysWOW64\\credui.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1681390813,
+        "size_of_image": 81920,
+        "sha256": "5cbcdd18d161557778f679081ef55b08981299a3b29f6b9cf540429e780c83a8"
+      }
+    ],
+    "sfc": [
+      {
+        "file": "sfc.dll",
+        "path": "Windows\\SysWOW64\\sfc.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 144117956,
+        "size_of_image": 12288,
+        "sha256": "06365c5d84682f2f6c4c047acfc35fdbc6d14c5e81e0b607db03be9a82d6acce"
+      }
+    ],
+    "sfc_os": [
+      {
+        "file": "sfc_os.dll",
+        "path": "Windows\\SysWOW64\\sfc_os.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 165516705,
+        "size_of_image": 32768,
+        "sha256": "17fba410831c77a2cb36282454cb5b60ca56639e40add124a211e4d8c1f5028d"
+      }
+    ],
+    "amsi": [
+      {
+        "file": "amsi.dll",
+        "path": "Windows\\SysWOW64\\amsi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3973611524,
+        "size_of_image": 86016,
+        "sha256": "3512b35ee21d4af757857b3477106fe091e5106e78e3243912e53840faf18753"
+      }
+    ],
+    "wer": [
+      {
+        "file": "wer.dll",
+        "path": "Windows\\SysWOW64\\wer.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3262887986,
+        "size_of_image": 811008,
+        "sha256": "7baead00ccd91c198671a1d7be9dc3b3bbc22635419c33246833f9184dd82569"
+      }
+    ],
+    "dnsapi": [
+      {
+        "file": "dnsapi.dll",
+        "path": "Windows\\SysWOW64\\dnsapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2873254371,
+        "size_of_image": 847872,
+        "sha256": "3b42102c04bf87b291556ed331a8fddbe2794d995bcdc469f1dcdb432e46b97b"
+      }
+    ],
+    "dhcpcsvc": [
+      {
+        "file": "dhcpcsvc.dll",
+        "path": "Windows\\SysWOW64\\dhcpcsvc.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2458558621,
+        "size_of_image": 102400,
+        "sha256": "3baacf5b76323c57b7b9850169b99cd6f5de45f53539e35033485d597695949d"
+      }
+    ],
+    "fwpuclnt": [
+      {
+        "file": "fwpuclnt.dll",
+        "path": "Windows\\SysWOW64\\FWPUCLNT.DLL",
+        "version": "10.0.26100.1",
+        "timestamp": 595440411,
+        "size_of_image": 393216,
+        "sha256": "59bf4ace1ec872ebebe077770d9ffa8158b77f96b24ad3b8edcd60e9714ac4c8"
+      }
+    ],
+    "httpapi": [
+      {
+        "file": "httpapi.dll",
+        "path": "Windows\\SysWOW64\\httpapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2222426867,
+        "size_of_image": 61440,
+        "sha256": "47e33c2070c8030a6c3326143e8bd2f5354bb9925bac3b53724e2ccb9c465736"
+      }
+    ],
+    "cabinet": [
+      {
+        "file": "cabinet.dll",
+        "path": "Windows\\SysWOW64\\cabinet.dll",
+        "version": "5.00",
+        "timestamp": 2689005921,
+        "size_of_image": 135168,
+        "sha256": "a09705e5b3732db312aca789b2ddd2520c376a1fc94d3b21c2b85e3b4e2afb84"
+      }
+    ],
+    "ucrtbase": [
+      {
+        "file": "ucrtbase.dll",
+        "path": "Windows\\SysWOW64\\ucrtbase.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1084814425,
+        "size_of_image": 1114112,
+        "sha256": "9074936fa13f2aede553770b18fa626e85f720d5d85b81ad9a0ffed1d70c9938"
+      }
+    ],
+    "msvcp60": [
+      {
+        "file": "msvcp60.dll",
+        "path": "Windows\\SysWOW64\\msvcp60.dll",
+        "version": "7.0.26100.1",
+        "timestamp": 1501470657,
+        "size_of_image": 483328,
+        "sha256": "2fd47e88d63249a2a4eb8248d4b296b83595ea70c014639aaa6f2dced6b25d1d"
+      }
+    ],
+    "msvcirt": [
+      {
+        "file": "msvcirt.dll",
+        "path": "Windows\\SysWOW64\\msvcirt.dll",
+        "version": "7.0.26100.1",
+        "timestamp": 4258511729,
+        "size_of_image": 81920,
+        "sha256": "af3098f5fdbde168070b50948db50914160e6c54f7fb432d7d5863c6aece22d0"
+      }
+    ],
+    "msvcrt20": [
+      {
+        "file": "msvcrt20.dll",
+        "path": "Windows\\SysWOW64\\msvcrt20.dll",
+        "version": "2.12.000",
+        "timestamp": 853273142,
+        "size_of_image": 282624,
+        "sha256": "811223265146532827dc999bd196f3c2b1b388833e390fcf93340693600ebded"
+      }
+    ],
+    "oleacc": [
+      {
+        "file": "oleacc.dll",
+        "path": "Windows\\SysWOW64\\oleacc.dll",
+        "version": "7.2.26100.1",
+        "timestamp": 998613495,
+        "size_of_image": 344064,
+        "sha256": "a7b6ade0c0a267dd2c7fdc42d08f9044ca944d044e233b4f7ff3ed651ac4d326"
+      }
+    ],
+    "oledlg": [
+      {
+        "file": "oledlg.dll",
+        "path": "Windows\\SysWOW64\\oledlg.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 116005412,
+        "size_of_image": 188416,
+        "sha256": "68e08b32f0c935f5d9550fb79d9777a7f95040ec49a70037f96592b6d3d03fa5"
+      }
+    ],
+    "propsys": [
+      {
+        "file": "propsys.dll",
+        "path": "Windows\\SysWOW64\\propsys.dll",
+        "version": "7.0.26100.1",
+        "timestamp": 2361493690,
+        "size_of_image": 811008,
+        "sha256": "28d7234dce69a2940d7b2d354ec305884435664eb1c3a2313ae4e661772dbb24"
+      }
+    ],
+    "combase": [
+      {
+        "file": "combase.dll",
+        "path": "Windows\\SysWOW64\\combase.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3668922559,
+        "size_of_image": 2588672,
+        "sha256": "9594104dfd926d1844cdc470ff62ec706cd7ca02ea49c8f08a82c3734a297139"
+      }
+    ],
+    "comsvcs": [
+      {
+        "file": "comsvcs.dll",
+        "path": "Windows\\SysWOW64\\comsvcs.dll",
+        "version": "2001.12.10941.16384",
+        "timestamp": 870330397,
+        "size_of_image": 1409024,
+        "sha256": "8d3773321cd25f24b6242628e8fadbee694c6b1a3d6c737306ad98a5f991a42f"
+      }
+    ],
+    "mscoree": [
+      {
+        "file": "mscoree.dll",
+        "path": "Windows\\SysWOW64\\mscoree.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1453465570,
+        "size_of_image": 348160,
+        "sha256": "776a50b5d092d5ba8f8b01bee96a453838a33d6df235af515053feb7c8f53671"
+      }
+    ],
+    "activeds": [
+      {
+        "file": "activeds.dll",
+        "path": "Windows\\SysWOW64\\activeds.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2341217084,
+        "size_of_image": 245760,
+        "sha256": "600cdc7bba647d8f86973387e59c99201bbd8b549ccf2b766a7987a98a3eb44b"
+      }
+    ],
+    "ntdsapi": [
+      {
+        "file": "ntdsapi.dll",
+        "path": "Windows\\SysWOW64\\ntdsapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3444384452,
+        "size_of_image": 114688,
+        "sha256": "c20ae41b2fa9bb5375f685e39a7b4aa7d791fa04e36e6b7abe4b103babb8bff4"
+      }
+    ],
+    "uxtheme": [
+      {
+        "file": "uxtheme.dll",
+        "path": "Windows\\SysWOW64\\uxtheme.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3459508488,
+        "size_of_image": 512000,
+        "sha256": "ea4120845d66e24a64aeb821a2f5cba3940a8c5e32e2db54fa8f83437204b28b"
+      }
+    ],
+    "shcore": [
+      {
+        "file": "shcore.dll",
+        "path": "Windows\\SysWOW64\\SHCore.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3379964736,
+        "size_of_image": 749568,
+        "sha256": "5a05b64e374629bda128055398ffd24d87d4c29f1c25ea23ce4befea2f7eba93"
+      }
+    ],
+    "dwmapi": [
+      {
+        "file": "dwmapi.dll",
+        "path": "Windows\\SysWOW64\\dwmapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 978789695,
+        "size_of_image": 143360,
+        "sha256": "ff7cfd553aac0f5a794fc028c39d057133a980db8837afdc05a4f462e4ede38b"
+      }
+    ],
+    "winmm": [
+      {
+        "file": "winmm.dll",
+        "path": "Windows\\SysWOW64\\winmm.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2549026827,
+        "size_of_image": 208896,
+        "sha256": "0c84141c9d07c7bdf3a82d67ba258122505e2a1362e7171c1285e7038ef6a5a7"
+      }
+    ],
+    "msimg32": [
+      {
+        "file": "msimg32.dll",
+        "path": "Windows\\SysWOW64\\msimg32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1201143207,
+        "size_of_image": 24576,
+        "sha256": "93850860a1421cbbb888653004729b3141f79cb04dcfbab6f8cbb8ca2e016154"
+      }
+    ],
+    "powrprof": [
+      {
+        "file": "powrprof.dll",
+        "path": "Windows\\SysWOW64\\powrprof.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3117662497,
+        "size_of_image": 282624,
+        "sha256": "f923254b242ec8faf15d2f10026f32678352be29d5dbd23698985c0cf6eb7c4a"
+      }
+    ],
+    "apphelp": [
+      {
+        "file": "apphelp.dll",
+        "path": "Windows\\SysWOW64\\apphelp.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3023868211,
+        "size_of_image": 700416,
+        "sha256": "38387b66444abe9aa51b62dbc7dc0367f4605ac63209bb6a924d3617981b3573"
+      }
+    ],
+    "sxs": [
+      {
+        "file": "sxs.dll",
+        "path": "Windows\\SysWOW64\\sxs.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1577082549,
+        "size_of_image": 540672,
+        "sha256": "faf57c6e51e665d0bb4289ba8ef26c5aeb1eb22120b153aa6422eeb0b9ef86e5"
+      }
+    ],
+    "cfgmgr32": [
+      {
+        "file": "cfgmgr32.dll",
+        "path": "Windows\\SysWOW64\\cfgmgr32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 930337569,
+        "size_of_image": 249856,
+        "sha256": "1d982fba77f4fa8be181215e0b9bec1d73b8d3e4bbae0da53253be4796a32834"
+      }
+    ],
+    "wevtapi": [
+      {
+        "file": "wevtapi.dll",
+        "path": "Windows\\SysWOW64\\wevtapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 4073195941,
+        "size_of_image": 245760,
+        "sha256": "27e5952052920010ea3e97211ac28737db9d2aa720c817ef9bd91b8317a02d9f"
+      }
+    ],
+    "pdh": [
+      {
+        "file": "pdh.dll",
+        "path": "Windows\\SysWOW64\\pdh.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1258048221,
+        "size_of_image": 249856,
+        "sha256": "4079440d0c9be0429f969e1812de91953bdbc34a49b944fbbfa81c7088901568"
+      }
+    ],
+    "msi": [
+      {
+        "file": "msi.dll",
+        "path": "Windows\\SysWOW64\\msi.dll",
+        "version": "5.0.26100.1",
+        "timestamp": 759361101,
+        "size_of_image": 2842624,
+        "sha256": "9d1829c1c27af835eb58ba1141ca71018277fe10a89a17f7bea0100ccecfcc48"
+      }
+    ],
+    "wldap32": [
+      {
+        "file": "wldap32.dll",
+        "path": "Windows\\SysWOW64\\Wldap32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 427450119,
+        "size_of_image": 393216,
+        "sha256": "8303dc502d4621bcb4102480062e2e815e223e043d0a95cac03041c5f9a86bea"
+      }
+    ],
+    "odbc32": [
+      {
+        "file": "odbc32.dll",
+        "path": "Windows\\SysWOW64\\odbc32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 997276149,
+        "size_of_image": 684032,
+        "sha256": "d299408a021ad8199ae828e4e0b8469ce343ac1c13e6d40abe1005d53404e14f"
+      }
+    ],
+    "msacm32": [
+      {
+        "file": "msacm32.dll",
+        "path": "Windows\\SysWOW64\\msacm32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1625528406,
+        "size_of_image": 106496,
+        "sha256": "2129cff52c9203be8849ecee9bd6586f4d6e422138a36f5d1de516c505ba2a3e"
+      }
+    ],
+    "riched20": [
+      {
+        "file": "riched20.dll",
+        "path": "Windows\\SysWOW64\\riched20.dll",
+        "version": "5.31.23.1231",
+        "timestamp": 1539131202,
+        "size_of_image": 512000,
+        "sha256": "605e4ab6be2f61a2162cde4d5c6dae552c78719e601ec14f387c7e9bc218dff1"
+      }
+    ],
+    "msftedit": [
+      {
+        "file": "msftedit.dll",
+        "path": "Windows\\SysWOW64\\msftedit.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3902958985,
+        "size_of_image": 2838528,
+        "sha256": "df60b2b66a8f439a1332709570c62ffd1c9af7eaccfcca8410dbfa8034095270"
+      }
+    ],
+    "cryptnet": [
+      {
+        "file": "cryptnet.dll",
+        "path": "Windows\\SysWOW64\\cryptnet.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3714779580,
+        "size_of_image": 176128,
+        "sha256": "48397051203f46e36d55e8030732e0413ca0e2d243eebc2c6cc9ba141e607c5b"
+      }
+    ],
+    "cryptui": [
+      {
+        "file": "cryptui.dll",
+        "path": "Windows\\SysWOW64\\cryptui.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2336536240,
+        "size_of_image": 315392,
+        "sha256": "b374118ab6b0952b0e2667a8f533ac464f11f8b7cc34d86ba37dcbbbe1af6f4d"
+      }
+    ],
+    "cryptsp": [
+      {
+        "file": "cryptsp.dll",
+        "path": "Windows\\SysWOW64\\cryptsp.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1072487329,
+        "size_of_image": 86016,
+        "sha256": "b26f8c9a8b47fe925bf9ab94db9c7d667fc73e7298feb17448420bebb9db9acd"
+      }
+    ],
+    "snmpapi": [
+      {
+        "file": "snmpapi.dll",
+        "path": "Windows\\SysWOW64\\snmpapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 610281869,
+        "size_of_image": 40960,
+        "sha256": "e3aa0246ed74c3edf472047cb28baa92a1d6dc2f8d2b60382fb588a964562300"
+      }
+    ],
+    "nsi": [
+      {
+        "file": "nsi.dll",
+        "path": "Windows\\SysWOW64\\nsi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2436164919,
+        "size_of_image": 28672,
+        "sha256": "7ece673ac0d9bb6c2e98b89a7279dde0025d049a140edc9952a125e2db849078"
+      }
+    ],
+    "rasapi32": [
+      {
+        "file": "rasapi32.dll",
+        "path": "Windows\\SysWOW64\\rasapi32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1799921705,
+        "size_of_image": 1003520,
+        "sha256": "e567b3d4a5c0f4ad499f528f46a11bdce2b2283d0c292bd23d3467d9984c7e96"
+      }
+    ],
+    "taskschd": [
+      {
+        "file": "taskschd.dll",
+        "path": "Windows\\SysWOW64\\taskschd.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 240133051,
+        "size_of_image": 532480,
+        "sha256": "8ed3c82873392bda0377e617bbff18b2c340feda9aaa9a886112ce2057635cd0"
+      }
+    ],
+    "rstrtmgr": [
+      {
+        "file": "rstrtmgr.dll",
+        "path": "Windows\\SysWOW64\\RstrtMgr.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2160186844,
+        "size_of_image": 208896,
+        "sha256": "af69268593fce945d5bcd96aba1c0c893805693f6b20305a035d3a76961aa8b2"
+      }
+    ],
+    "dbgeng": [
+      {
+        "file": "dbgeng.dll",
+        "path": "Windows\\SysWOW64\\dbgeng.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3429030942,
+        "size_of_image": 6328320,
+        "sha256": "d032b53cd7478c58bc2b63c5c27d0ae1bb7108652c48ab6de3817ab9843ac631"
+      }
+    ],
+    "tdh": [
+      {
+        "file": "tdh.dll",
+        "path": "Windows\\SysWOW64\\tdh.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3799662610,
+        "size_of_image": 389120,
+        "sha256": "3e868f5fcd9e691bc5353650bd03a52d1d246220708129ee5f3e48a29d094547"
+      }
+    ],
+    "d3d9": [
+      {
+        "file": "d3d9.dll",
+        "path": "Windows\\SysWOW64\\d3d9.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3190020658,
+        "size_of_image": 1531904,
+        "sha256": "163ddec84ece1411ab07540dc6dacba47887cf09130e2003f1cefcf1c63fac60"
+      }
+    ],
+    "d3d11": [
+      {
+        "file": "d3d11.dll",
+        "path": "Windows\\SysWOW64\\d3d11.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1810166667,
+        "size_of_image": 2031616,
+        "sha256": "1ae5c9817f8be5cd4d9f4d33bf5efd054e629121d493f9dc9bc0e42a993715d2"
+      }
+    ],
+    "dxgi": [
+      {
+        "file": "dxgi.dll",
+        "path": "Windows\\SysWOW64\\dxgi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1399484334,
+        "size_of_image": 946176,
+        "sha256": "f80a32f4c866d3741334ed13662ffd7fbf05ff4ea06aee4cbd6eb989f41b77df"
+      }
+    ],
+    "d2d1": [
+      {
+        "file": "d2d1.dll",
+        "path": "Windows\\SysWOW64\\d2d1.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3995594341,
+        "size_of_image": 5316608,
+        "sha256": "d5cafa26849c15ffa74cf23ddfe56e27bdad238036206be3019f2fcd041cf0b0"
+      }
+    ],
+    "dwrite": [
+      {
+        "file": "dwrite.dll",
+        "path": "Windows\\SysWOW64\\DWrite.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2217924391,
+        "size_of_image": 2179072,
+        "sha256": "d4ec41bed86a0b466e8b2424b325be24576de1c1812ccc012644cb1606f162b4"
+      }
+    ],
+    "dsound": [
+      {
+        "file": "dsound.dll",
+        "path": "Windows\\SysWOW64\\dsound.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3820513112,
+        "size_of_image": 483328,
+        "sha256": "a4f3615686b5ab4d42fd33f35970cbf1fcf355d6bf0b9031a650f776638da56f"
+      }
+    ],
+    "opengl32": [
+      {
+        "file": "opengl32.dll",
+        "path": "Windows\\SysWOW64\\opengl32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3590990120,
+        "size_of_image": 929792,
+        "sha256": "cdee39dca16ec9985cb7084fa3cbfb6a7baa92f6f4d28fb6bf8e20acb11f855b"
+      }
+    ],
+    "dinput": [
+      {
+        "file": "dinput.dll",
+        "path": "Windows\\SysWOW64\\dinput.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3213989451,
+        "size_of_image": 159744,
+        "sha256": "663255309d4788ca7f62a57ed3f765869f7865c502ec179be79f78b4c3459a07"
+      }
+    ]
+  },
+  "x64": {
+    "ntdll": [
+      {
+        "file": "ntdll.dll",
+        "path": "Windows\\System32\\ntdll.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2134014735,
+        "size_of_image": 2445312,
+        "sha256": "473a02e37fd071620029c844ed3df71646b18208d8806e33e00ddd72e908534f"
+      }
+    ],
+    "kernel32": [
+      {
+        "file": "kernel32.dll",
+        "path": "Windows\\System32\\kernel32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2558305030,
+        "size_of_image": 815104,
+        "sha256": "e1593f34c26f7ef8e0b8e564c9d3de4bfc78379d6251fa4da150422771822cc9"
+      }
+    ],
+    "user32": [
+      {
+        "file": "user32.dll",
+        "path": "Windows\\System32\\user32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2562122176,
+        "size_of_image": 1830912,
+        "sha256": "36d8a4c97c198d606511c8099edacb51811104da526d5447337e3d5ff415d900"
+      }
+    ],
+    "shell32": [
+      {
+        "file": "shell32.dll",
+        "path": "Windows\\System32\\shell32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2104655553,
+        "size_of_image": 7233536,
+        "sha256": "2bece6028a886b4f6f343088daa4b9ed175523d8a5fc1584e399d89e575410e3"
+      }
+    ],
+    "shlwapi": [
+      {
+        "file": "shlwapi.dll",
+        "path": "Windows\\System32\\shlwapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1647946043,
+        "size_of_image": 380928,
+        "sha256": "be1ed2d419ef9e0306b354be8900b4992a63fb60e395821b517174393632eb6b"
+      }
+    ],
+    "urlmon": [
+      {
+        "file": "urlmon.dll",
+        "path": "Windows\\System32\\urlmon.dll",
+        "version": "11.00.26100.1",
+        "timestamp": 4251772289,
+        "size_of_image": 1933312,
+        "sha256": "e34f175229d691b8d467dbd995fd932fa2aaafe4639e00254b7f583ff020ae91"
+      }
+    ],
+    "advapi32": [
+      {
+        "file": "advapi32.dll",
+        "path": "Windows\\System32\\advapi32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2525562461,
+        "size_of_image": 729088,
+        "sha256": "373c4e6d4df341f99eb37c10cd848189da0ba562166f240bbc3b5ff69a1bf438"
+      }
+    ],
+    "mswsock": [
+      {
+        "file": "mswsock.dll",
+        "path": "Windows\\System32\\mswsock.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2912053014,
+        "size_of_image": 425984,
+        "sha256": "02b21dde007f75524e7d2b27a522a4f5b9ba914da94eb3748d5a92c330b68ca4"
+      }
+    ],
+    "wininet": [
+      {
+        "file": "wininet.dll",
+        "path": "Windows\\System32\\wininet.dll",
+        "version": "11.00.26100.1",
+        "timestamp": 3757375703,
+        "size_of_image": 2596864,
+        "sha256": "e4038f11f10f6149b2c12e4b11726fd8b329b73a605cf6cf734b16999819396f"
+      }
+    ],
+    "msvcrt": [
+      {
+        "file": "msvcrt.dll",
+        "path": "Windows\\System32\\msvcrt.dll",
+        "version": "7.0.26100.1",
+        "timestamp": 656172835,
+        "size_of_image": 692224,
+        "sha256": "a0f679e022bb3490a3ee5099d47a8b0d3cad4e9f98d874f9db238a4695a13db5"
+      }
+    ],
+    "gdi32": [
+      {
+        "file": "gdi32.dll",
+        "path": "Windows\\System32\\gdi32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3499795492,
+        "size_of_image": 172032,
+        "sha256": "3c5815b71d0cc5ca471fa9945e4c659f0f721582a88e33a6c4581c84f39546f4"
+      }
+    ],
+    "ole32": [
+      {
+        "file": "ole32.dll",
+        "path": "Windows\\System32\\ole32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2595438936,
+        "size_of_image": 1658880,
+        "sha256": "fda2ee5887922cb9ca97a146ad708c8b56cedfcfc25c0d019ec7c625a136573d"
+      }
+    ],
+    "wsock32": [
+      {
+        "file": "wsock32.dll",
+        "path": "Windows\\System32\\wsock32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1501491795,
+        "size_of_image": 40960,
+        "sha256": "7c6658e8ddb19e10679c13050bc7febc33d190b162b653ebafb0da6e7d292519"
+      }
+    ],
+    "ws2_32": [
+      {
+        "file": "ws2_32.dll",
+        "path": "Windows\\System32\\ws2_32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1620461582,
+        "size_of_image": 475136,
+        "sha256": "41a9d259618a17a30b301e3a0b2b16c30cd348ea8e4af60400e2eb039c328522"
+      }
+    ],
+    "comctl32": [
+      {
+        "file": "comctl32.dll",
+        "path": "WinSxS (KB5039239)",
+        "version": "6.10",
+        "timestamp": 2250040334,
+        "size_of_image": 2686976,
+        "sha256": "7f500b800a2b60dbe1416f21f998dd87c313ebf8c5cdbaaf65b32b4791fabfa1"
+      },
+      {
+        "file": "comctl32.dll",
+        "path": "Windows\\System32\\comctl32.dll",
+        "version": "5.82",
+        "timestamp": 3394166397,
+        "size_of_image": 737280,
+        "sha256": "36a9bdcba63b4d4eed24b3f380b147efd0d01e2a2d1a4f4a7f2eeabbb59a6d9b"
+      }
+    ],
+    "comdlg32": [
+      {
+        "file": "comdlg32.dll",
+        "path": "Windows\\System32\\comdlg32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2560730994,
+        "size_of_image": 942080,
+        "sha256": "73ee700b76f21fd290dc01c073460067abae1aa6de32aefaf8ebbbcc4a0172ed"
+      }
+    ],
+    "oleaut32": [
+      {
+        "file": "oleaut32.dll",
+        "path": "Windows\\System32\\oleaut32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3394356443,
+        "size_of_image": 876544,
+        "sha256": "d5b2274f3cbfa58a5bfcff9d2b22920a64e9df523c9054bc13404fc1149e9eb6"
+      }
+    ],
+    "version": [
+      {
+        "file": "version.dll",
+        "path": "Windows\\System32\\version.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 4096875070,
+        "size_of_image": 45056,
+        "sha256": "f9e39351de45537e2d27cc1490cff10ae49c42f9ef5c83e661a3354ab1aee07a"
+      }
+    ],
+    "rpcrt4": [
+      {
+        "file": "rpcrt4.dll",
+        "path": "Windows\\System32\\rpcrt4.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1827782842,
+        "size_of_image": 1150976,
+        "sha256": "20a13f280c9eef1f1bf90fcab3ac40f4c88c008c2ea20d94a0df914746576bb6"
+      }
+    ],
+    "secur32": [
+      {
+        "file": "secur32.dll",
+        "path": "Windows\\System32\\secur32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 632019051,
+        "size_of_image": 53248,
+        "sha256": "4275d397a6152ac32db969e873378f8650008407f61b5790202c08c2f30846c5"
+      }
+    ],
+    "crypt32": [
+      {
+        "file": "crypt32.dll",
+        "path": "Windows\\System32\\crypt32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3166576232,
+        "size_of_image": 1531904,
+        "sha256": "4afe24dd009c52536ee32a938455e71283094f18756c92405cf74cfc77b93f54"
+      }
+    ],
+    "wintrust": [
+      {
+        "file": "wintrust.dll",
+        "path": "Windows\\System32\\wintrust.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1704535010,
+        "size_of_image": 491520,
+        "sha256": "11dd4abcafd3d8b52b3e0dcfb4e0fa852474ed112bb7a9cd20bb338c84b33f4e"
+      }
+    ],
+    "winhttp": [
+      {
+        "file": "winhttp.dll",
+        "path": "Windows\\System32\\winhttp.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1779137873,
+        "size_of_image": 1167360,
+        "sha256": "898f78a8c81ce03c7b77962baf9d8d97ad714756d11f5afdd94689c40e76f058"
+      }
+    ],
+    "iphlpapi": [
+      {
+        "file": "iphlpapi.dll",
+        "path": "Windows\\System32\\IPHLPAPI.DLL",
+        "version": "10.0.26100.1",
+        "timestamp": 3870826359,
+        "size_of_image": 196608,
+        "sha256": "6c37d64bce8cbeb805b20ad85130744163f4fd002ed3461260592e76dc80d9a8"
+      }
+    ],
+    "setupapi": [
+      {
+        "file": "setupapi.dll",
+        "path": "Windows\\System32\\setupapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3730754518,
+        "size_of_image": 4702208,
+        "sha256": "4b039cfd96979696add00ca64f294285b33857d477d199d495141fef83d5f4f8"
+      }
+    ],
+    "userenv": [
+      {
+        "file": "userenv.dll",
+        "path": "Windows\\System32\\userenv.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2313985371,
+        "size_of_image": 176128,
+        "sha256": "1e1c2dab5ff7536449e91b83441048fcd43668bd912c90439706e4d30f4694c0"
+      }
+    ],
+    "psapi": [
+      {
+        "file": "psapi.dll",
+        "path": "Windows\\System32\\psapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 992462114,
+        "size_of_image": 32768,
+        "sha256": "aee47f2535e0196552513d37be8411a9b9c649a50c3d847488162580d8b88793"
+      }
+    ],
+    "imm32": [
+      {
+        "file": "imm32.dll",
+        "path": "Windows\\System32\\imm32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1436932292,
+        "size_of_image": 192512,
+        "sha256": "f1256d79e16c17ce651fd7aada02b95a210282fa9ff67ed286e19aca5d135d4e"
+      }
+    ],
+    "kernelbase": [
+      {
+        "file": "kernelbase.dll",
+        "path": "Windows\\System32\\KernelBase.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 412931782,
+        "size_of_image": 3801088,
+        "sha256": "833b9c0f5c79b413992d2e441fffef58a55a0d1df63197d89c52d785538dfaff"
+      }
+    ],
+    "normaliz": [
+      {
+        "file": "normaliz.dll",
+        "path": "Windows\\System32\\normaliz.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3139002400,
+        "size_of_image": 32768,
+        "sha256": "8a6ee80a338e6b090757a4a5bd217072c9d7e2aa3cf80f99428f9032d48f8057"
+      }
+    ],
+    "sechost": [
+      {
+        "file": "sechost.dll",
+        "path": "Windows\\System32\\sechost.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 793664106,
+        "size_of_image": 679936,
+        "sha256": "921097b7638bcdf3a1634b426dfce92df835a25e6c4076ccc63bd44c26561317"
+      }
+    ],
+    "netapi32": [
+      {
+        "file": "netapi32.dll",
+        "path": "Windows\\System32\\netapi32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3045720739,
+        "size_of_image": 106496,
+        "sha256": "854ca03638be71ce504e0e5040cdcb16569dbcaf1a76a4a0e8a60536f898fa39"
+      }
+    ],
+    "mpr": [
+      {
+        "file": "mpr.dll",
+        "path": "Windows\\System32\\mpr.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2826673470,
+        "size_of_image": 135168,
+        "sha256": "b5ff2ab4d2f5314e8807943d2f0860d9c4bec7abe3fc43637ae61bb2dfb2c0fc"
+      }
+    ],
+    "bcrypt": [
+      {
+        "file": "bcrypt.dll",
+        "path": "Windows\\System32\\bcrypt.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1835388822,
+        "size_of_image": 155648,
+        "sha256": "86f184ead60632a2a8a1498db533915e4dce6ea0acca803133e10d333998a051"
+      }
+    ],
+    "ncrypt": [
+      {
+        "file": "ncrypt.dll",
+        "path": "Windows\\System32\\ncrypt.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 610695044,
+        "size_of_image": 196608,
+        "sha256": "d0bc18a8ddeecef9147e9d6724c8b33fc18f81531c205de10daec6874ffafade"
+      }
+    ],
+    "dbghelp": [
+      {
+        "file": "dbghelp.dll",
+        "path": "Windows\\System32\\dbghelp.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2173073878,
+        "size_of_image": 2363392,
+        "sha256": "f3f8d96f39e80757e65450c11b5fb74891979496b138779029c4e20059fb4931"
+      }
+    ],
+    "imagehlp": [
+      {
+        "file": "imagehlp.dll",
+        "path": "Windows\\System32\\imagehlp.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 811046339,
+        "size_of_image": 131072,
+        "sha256": "28ca2cbdd3d580faea65e698aff8e7de419e1cc589e668299092ede463514c87"
+      }
+    ],
+    "wtsapi32": [
+      {
+        "file": "wtsapi32.dll",
+        "path": "Windows\\System32\\wtsapi32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3267657723,
+        "size_of_image": 86016,
+        "sha256": "98e557b8497372c9455049cff0e17dde350ebd296f5dd85213047fed9efdd20b"
+      }
+    ],
+    "samlib": [
+      {
+        "file": "samlib.dll",
+        "path": "Windows\\System32\\samlib.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3841669920,
+        "size_of_image": 172032,
+        "sha256": "8d74ee59cb20eddcdaff36d1b39ace0982c6fe44477785ea7b73eb1b8dac862b"
+      }
+    ],
+    "authz": [
+      {
+        "file": "authz.dll",
+        "path": "Windows\\System32\\authz.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3039252371,
+        "size_of_image": 327680,
+        "sha256": "f4ceb0ad6b89dc7f79a1a39144837db81b1d954772c0fe6015611930771b0a2b"
+      }
+    ],
+    "credui": [
+      {
+        "file": "credui.dll",
+        "path": "Windows\\System32\\credui.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2259161136,
+        "size_of_image": 114688,
+        "sha256": "8eafcd273b8218d1afade34bc86a9f3bb1b729a59c59ac5f5c281d6b0411c645"
+      }
+    ],
+    "sfc": [
+      {
+        "file": "sfc.dll",
+        "path": "Windows\\System32\\sfc.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 14688905,
+        "size_of_image": 12288,
+        "sha256": "6f62f83a3f3affe40ab4d9bc2ed3b888a90866e7639700c77415f8f44778fbb4"
+      }
+    ],
+    "sfc_os": [
+      {
+        "file": "sfc_os.dll",
+        "path": "Windows\\System32\\sfc_os.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3768413958,
+        "size_of_image": 40960,
+        "sha256": "c634d2c7647566808bc7a5796ac9389925e75664e8d31eab2813c7d128043fbb"
+      }
+    ],
+    "amsi": [
+      {
+        "file": "amsi.dll",
+        "path": "Windows\\System32\\amsi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 4265806318,
+        "size_of_image": 118784,
+        "sha256": "fc964c2676e991fc8c8cea69d63cc433ad8a1f0f654f8cd81e9622b9c82206d6"
+      }
+    ],
+    "wer": [
+      {
+        "file": "wer.dll",
+        "path": "Windows\\System32\\wer.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3595673475,
+        "size_of_image": 966656,
+        "sha256": "0c79513a5117d283c155349a2bf529c2d8fc7cc92869652f5187662851d42360"
+      }
+    ],
+    "dnsapi": [
+      {
+        "file": "dnsapi.dll",
+        "path": "Windows\\System32\\dnsapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 549873069,
+        "size_of_image": 1159168,
+        "sha256": "6425251de5b1a55d744cf77ad1687cf1de4acb33d79c8288a2a1793240c96282"
+      }
+    ],
+    "dhcpcsvc": [
+      {
+        "file": "dhcpcsvc.dll",
+        "path": "Windows\\System32\\dhcpcsvc.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3219506376,
+        "size_of_image": 139264,
+        "sha256": "04fc735b76cf09b815b7fba148794b17bc18b03c7f72dfe50059802174d38988"
+      }
+    ],
+    "fwpuclnt": [
+      {
+        "file": "fwpuclnt.dll",
+        "path": "Windows\\System32\\FWPUCLNT.DLL",
+        "version": "10.0.26100.1",
+        "timestamp": 429891244,
+        "size_of_image": 544768,
+        "sha256": "351564cd57db91e8e991d60dc276592f780516dd68eded251e06f55ecb4d06ea"
+      }
+    ],
+    "httpapi": [
+      {
+        "file": "httpapi.dll",
+        "path": "Windows\\System32\\httpapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2190908790,
+        "size_of_image": 86016,
+        "sha256": "9e767069f6f997c8b1960520ebf8ffc3607005d3d0ff0d7312bcd556a5bdda0c"
+      }
+    ],
+    "cabinet": [
+      {
+        "file": "cabinet.dll",
+        "path": "Windows\\System32\\cabinet.dll",
+        "version": "5.00",
+        "timestamp": 791399748,
+        "size_of_image": 172032,
+        "sha256": "074504cad602a2a69fceb0a4e62ba233525ad3114017948d2b7fa22b640046d5"
+      }
+    ],
+    "ucrtbase": [
+      {
+        "file": "ucrtbase.dll",
+        "path": "Windows\\System32\\ucrtbase.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 475374826,
+        "size_of_image": 1351680,
+        "sha256": "a0fce9704e8a4ecbd663b694bcc36e4224e41d19a9c69cb14f9cc265b3a98fa1"
+      }
+    ],
+    "msvcp60": [
+      {
+        "file": "msvcp60.dll",
+        "path": "Windows\\System32\\msvcp60.dll",
+        "version": "7.0.26100.1",
+        "timestamp": 1174264096,
+        "size_of_image": 634880,
+        "sha256": "4b7d8e819274e42f4fd61a8f06ed6c8b5aaf9154a1881e2012da5a3200118b96"
+      }
+    ],
+    "msvcirt": [
+      {
+        "file": "msvcirt.dll",
+        "path": "Windows\\System32\\msvcirt.dll",
+        "version": "7.0.26100.1",
+        "timestamp": 115384596,
+        "size_of_image": 106496,
+        "sha256": "58f33b5e66df13e19de149287d1ae778ae8023648670c1c20adef4b4f13dad3f"
+      }
+    ],
+    "oleacc": [
+      {
+        "file": "oleacc.dll",
+        "path": "Windows\\System32\\oleacc.dll",
+        "version": "7.2.26100.1",
+        "timestamp": 2691552018,
+        "size_of_image": 438272,
+        "sha256": "745a90c87b0e08c3a92f12b02b53c41bcac05df74b5a0c8f89f2798d43a5d6aa"
+      }
+    ],
+    "oledlg": [
+      {
+        "file": "oledlg.dll",
+        "path": "Windows\\System32\\oledlg.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 728828200,
+        "size_of_image": 237568,
+        "sha256": "04472920d2bb8c96ba404c2c74c48169afb92a1669af6f27702a8bd8254ea635"
+      }
+    ],
+    "propsys": [
+      {
+        "file": "propsys.dll",
+        "path": "Windows\\System32\\propsys.dll",
+        "version": "7.0.26100.1",
+        "timestamp": 3683147054,
+        "size_of_image": 999424,
+        "sha256": "a7d352498e78a0e519c9ae6f65cc7edc5c76e63c71dbef29ac29c7f577f3ce45"
+      }
+    ],
+    "combase": [
+      {
+        "file": "combase.dll",
+        "path": "Windows\\System32\\combase.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3508016879,
+        "size_of_image": 3624960,
+        "sha256": "506a2e3ee3ac3f5b094b71ba0bb5e9db332e8d5ce071c35984725fe60516bf9c"
+      }
+    ],
+    "comsvcs": [
+      {
+        "file": "comsvcs.dll",
+        "path": "Windows\\System32\\comsvcs.dll",
+        "version": "2001.12.10941.16384",
+        "timestamp": 3370799073,
+        "size_of_image": 1724416,
+        "sha256": "3b0806b230f2d375f640f44d1bc82fc7f422965d241393ee9da910e55628c39d"
+      }
+    ],
+    "mscoree": [
+      {
+        "file": "mscoree.dll",
+        "path": "Windows\\System32\\mscoree.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1267919106,
+        "size_of_image": 446464,
+        "sha256": "520cddbad0c9e92829c88ffe56f85a00a54e64924685bff25dea15ffb984f92c"
+      }
+    ],
+    "activeds": [
+      {
+        "file": "activeds.dll",
+        "path": "Windows\\System32\\activeds.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2260525225,
+        "size_of_image": 303104,
+        "sha256": "0087014c9a27fecf7b1aab408f9152e15e92604c65d1ce59d65f98de1d7c8e6a"
+      }
+    ],
+    "ntdsapi": [
+      {
+        "file": "ntdsapi.dll",
+        "path": "Windows\\System32\\ntdsapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1969642485,
+        "size_of_image": 176128,
+        "sha256": "2c37c40b951c8ddb510722ffb394f6c27906fcc534a13a06c7b475830b0f9674"
+      }
+    ],
+    "uxtheme": [
+      {
+        "file": "uxtheme.dll",
+        "path": "Windows\\System32\\uxtheme.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3692944133,
+        "size_of_image": 688128,
+        "sha256": "659c5c969966dbf46548ee2d64b27283d8a192e941005ded9574fcacc18d339f"
+      }
+    ],
+    "shcore": [
+      {
+        "file": "shcore.dll",
+        "path": "Windows\\System32\\SHCore.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 499139722,
+        "size_of_image": 864256,
+        "sha256": "9a42bce241cd92b1311e8be539d00b2d465f9fba285fbf77520de44d0e6c686a"
+      }
+    ],
+    "dwmapi": [
+      {
+        "file": "dwmapi.dll",
+        "path": "Windows\\System32\\dwmapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2611637910,
+        "size_of_image": 176128,
+        "sha256": "78713893af9d49e7d2c3d0383c5a4b15fb1f1b9c97594c3148453bed1453f6eb"
+      }
+    ],
+    "winmm": [
+      {
+        "file": "winmm.dll",
+        "path": "Windows\\System32\\winmm.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 856258082,
+        "size_of_image": 221184,
+        "sha256": "72511b98e6ce54d7d9bbd42b3cd38a6ae1ac65426f86522fcb48b3e9342d9d86"
+      }
+    ],
+    "msimg32": [
+      {
+        "file": "msimg32.dll",
+        "path": "Windows\\System32\\msimg32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2122315677,
+        "size_of_image": 32768,
+        "sha256": "a0af755485d6a1d66e771f9bda714f8c4bcdebd9c0b81acded9e6f43a6a4f5e8"
+      }
+    ],
+    "powrprof": [
+      {
+        "file": "powrprof.dll",
+        "path": "Windows\\System32\\powrprof.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 592947955,
+        "size_of_image": 319488,
+        "sha256": "9be6325bff2f1189486490a28297c3be4032b3924cd39af6c986c05b2f87b84c"
+      }
+    ],
+    "apphelp": [
+      {
+        "file": "apphelp.dll",
+        "path": "Windows\\System32\\apphelp.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 563095762,
+        "size_of_image": 659456,
+        "sha256": "2a78e369c6f4c9fbbbbe20b888b3a2a0eecffec7bb867ae145e9baa7811b7048"
+      }
+    ],
+    "sxs": [
+      {
+        "file": "sxs.dll",
+        "path": "Windows\\System32\\sxs.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3834976666,
+        "size_of_image": 659456,
+        "sha256": "ec61935d2ae5c7285d0c36c998c76de6ee679e012e791070d0fe80e247a6d038"
+      }
+    ],
+    "cfgmgr32": [
+      {
+        "file": "cfgmgr32.dll",
+        "path": "Windows\\System32\\cfgmgr32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3816571079,
+        "size_of_image": 331776,
+        "sha256": "cdc26b3d79bb9a1ef2f0fe6e6cbba3e591f5141ec15b9ef876ba82befed0d791"
+      }
+    ],
+    "wevtapi": [
+      {
+        "file": "wevtapi.dll",
+        "path": "Windows\\System32\\wevtapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 4247365940,
+        "size_of_image": 311296,
+        "sha256": "83f8ac6f3a64e8bb72d1acc74553b7867347f0751e05047a09f91c20ee82ca04"
+      }
+    ],
+    "pdh": [
+      {
+        "file": "pdh.dll",
+        "path": "Windows\\System32\\pdh.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3038979181,
+        "size_of_image": 315392,
+        "sha256": "822b12b52cdbb197912bea274dd3fcc8faeda2ca1d8989439abac45ad6059a83"
+      }
+    ],
+    "msi": [
+      {
+        "file": "msi.dll",
+        "path": "Windows\\System32\\msi.dll",
+        "version": "5.0.26100.1",
+        "timestamp": 69243124,
+        "size_of_image": 3395584,
+        "sha256": "d4a8860fb3c97d96a76365a3adbe8af935a90ad2aae1ba165dfca9e2e17708a4"
+      }
+    ],
+    "wldap32": [
+      {
+        "file": "wldap32.dll",
+        "path": "Windows\\System32\\Wldap32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 34165965,
+        "size_of_image": 466944,
+        "sha256": "b4949482cd66e7037fec7af36ffce26de96245b4b91e295c101a809bd3bba26d"
+      }
+    ],
+    "odbc32": [
+      {
+        "file": "odbc32.dll",
+        "path": "Windows\\System32\\odbc32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2508096011,
+        "size_of_image": 802816,
+        "sha256": "9b4fcba820cf1e4499e7d65e2eb9a1422a7a3cdd74041b5f75e82f5461a88633"
+      }
+    ],
+    "msacm32": [
+      {
+        "file": "msacm32.dll",
+        "path": "Windows\\System32\\msacm32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1845146333,
+        "size_of_image": 135168,
+        "sha256": "23841be316b61caa13c5b836d943b6780633ed25f15b98c8b30431e33a7d34f7"
+      }
+    ],
+    "riched20": [
+      {
+        "file": "riched20.dll",
+        "path": "Windows\\System32\\riched20.dll",
+        "version": "5.31.23.1231",
+        "timestamp": 3002206357,
+        "size_of_image": 741376,
+        "sha256": "29d8beacd801ec80bb6aab6cc8dc984bcd4a3fb80002bdb43f14e188454dd12b"
+      }
+    ],
+    "msftedit": [
+      {
+        "file": "msftedit.dll",
+        "path": "Windows\\System32\\msftedit.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1977286561,
+        "size_of_image": 3235840,
+        "sha256": "69d8677d649b090dcb942d52177af384b407f2a4a623ef53da8a54342b28a70b"
+      }
+    ],
+    "cryptnet": [
+      {
+        "file": "cryptnet.dll",
+        "path": "Windows\\System32\\cryptnet.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2017182125,
+        "size_of_image": 241664,
+        "sha256": "0438cd4c8bbe13fef0415c0ffbc6a0c18746dc12b34e97b5b11c5208e9b9ba72"
+      }
+    ],
+    "cryptui": [
+      {
+        "file": "cryptui.dll",
+        "path": "Windows\\System32\\cryptui.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2596874672,
+        "size_of_image": 385024,
+        "sha256": "c30900ffeb4a8bcf78a50478278bcd868a4fb473d27d6d47757464c8bc985db0"
+      }
+    ],
+    "cryptsp": [
+      {
+        "file": "cryptsp.dll",
+        "path": "Windows\\System32\\cryptsp.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2253308388,
+        "size_of_image": 114688,
+        "sha256": "e99abd6c80a062285c5f737b62ca5a7c4eede11074611fd2d43505d54ef2237a"
+      }
+    ],
+    "snmpapi": [
+      {
+        "file": "snmpapi.dll",
+        "path": "Windows\\System32\\snmpapi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1622424224,
+        "size_of_image": 61440,
+        "sha256": "76fc1732e3a3f9e7cdacf244019453bd221145dabf58e5264a9416f1df978c21"
+      }
+    ],
+    "nsi": [
+      {
+        "file": "nsi.dll",
+        "path": "Windows\\System32\\nsi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3232352480,
+        "size_of_image": 40960,
+        "sha256": "9743ccd89135f06c25ff86ad084bec263a29e3c019691eb115c5d2fdc47122e1"
+      }
+    ],
+    "rasapi32": [
+      {
+        "file": "rasapi32.dll",
+        "path": "Windows\\System32\\rasapi32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3750687292,
+        "size_of_image": 1081344,
+        "sha256": "c70e2e7e6011b75d02f77bd420dc5147f5bd4ca57e6451510cdb0a92ca2bab6b"
+      }
+    ],
+    "taskschd": [
+      {
+        "file": "taskschd.dll",
+        "path": "Windows\\System32\\taskschd.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1608341680,
+        "size_of_image": 659456,
+        "sha256": "7a172a93c9def92f8c9683209b491c0fe835b3f1aef257218441761120ed1c0e"
+      }
+    ],
+    "rstrtmgr": [
+      {
+        "file": "rstrtmgr.dll",
+        "path": "Windows\\System32\\RstrtMgr.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2863621023,
+        "size_of_image": 262144,
+        "sha256": "4a17aa6e78c11878a18737c69077b49ee5ce5d046906f7a12d2ba089767f6f5b"
+      }
+    ],
+    "dbgeng": [
+      {
+        "file": "dbgeng.dll",
+        "path": "Windows\\System32\\dbgeng.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2979590039,
+        "size_of_image": 7454720,
+        "sha256": "bfa188b10eb64a94f1eb59bfb0f8d85eb5dfc803cd0f6b5c554816fe311a236e"
+      }
+    ],
+    "tdh": [
+      {
+        "file": "tdh.dll",
+        "path": "Windows\\System32\\tdh.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1210516445,
+        "size_of_image": 487424,
+        "sha256": "d355a7a5e0413c702ac2715d31e5c83375a9168955311ac83faaf4e82e43afcf"
+      }
+    ],
+    "d3d9": [
+      {
+        "file": "d3d9.dll",
+        "path": "Windows\\System32\\d3d9.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3545267523,
+        "size_of_image": 1724416,
+        "sha256": "d2bd0d9e9d6f076863627ff06b603d94efa5405139a57eb1de23faa99da1967a"
+      }
+    ],
+    "d3d11": [
+      {
+        "file": "d3d11.dll",
+        "path": "Windows\\System32\\d3d11.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1472368868,
+        "size_of_image": 2490368,
+        "sha256": "bc62581d002cfa56c377fbfc312cf3c0a31941628b4f3de79d3c5db66cd55b5d"
+      }
+    ],
+    "dxgi": [
+      {
+        "file": "dxgi.dll",
+        "path": "Windows\\System32\\dxgi.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2854794323,
+        "size_of_image": 1138688,
+        "sha256": "a3d0a2f79afd40e6bf7f62e4ba59d896e1c766c07efc960f4984e882da3dab70"
+      }
+    ],
+    "d2d1": [
+      {
+        "file": "d2d1.dll",
+        "path": "Windows\\System32\\d2d1.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2210307021,
+        "size_of_image": 6524928,
+        "sha256": "c5802c64ac293a7a1a7963138529a0b0087ffbfab70f3f9f176791e28ca5a7d2"
+      }
+    ],
+    "dwrite": [
+      {
+        "file": "dwrite.dll",
+        "path": "Windows\\System32\\DWrite.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 2498790375,
+        "size_of_image": 2523136,
+        "sha256": "5a9364c90bc0cedbd7bbf4326879d112b89f6a9cd1228ef461111a4b43944113"
+      }
+    ],
+    "dsound": [
+      {
+        "file": "dsound.dll",
+        "path": "Windows\\System32\\dsound.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 1021370972,
+        "size_of_image": 606208,
+        "sha256": "f8fd194bfc117a863c683cd27d3cceb610b5df8e8f0de1149947b9ec9992ebfb"
+      }
+    ],
+    "opengl32": [
+      {
+        "file": "opengl32.dll",
+        "path": "Windows\\System32\\opengl32.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 3597283451,
+        "size_of_image": 1097728,
+        "sha256": "171443a620c8f241966493885ad4e4a892de03131f01ccc6b8a83b223271078a"
+      }
+    ],
+    "dinput": [
+      {
+        "file": "dinput.dll",
+        "path": "Windows\\System32\\dinput.dll",
+        "version": "10.0.26100.1",
+        "timestamp": 862399174,
+        "size_of_image": 208896,
+        "sha256": "307fb19124a850fed0ceed46c2e167792038923901a1f8e617cead97c47074e3"
+      }
+    ]
+  }
+}
