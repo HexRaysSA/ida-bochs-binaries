@@ -978,6 +978,16 @@
         "size_of_image": 159744,
         "sha256": "663255309d4788ca7f62a57ed3f765869f7865c502ec179be79f78b4c3459a07"
       }
+    ],
+    "winspool.drv": [
+      {
+        "file": "winspool.drv",
+        "path": "Windows\\SysWOW64\\winspool.drv",
+        "version": "10.0.26100.1",
+        "timestamp": 2397130714,
+        "size_of_image": 536576,
+        "sha256": "d5ac07f152476b6171d16fac7e8ad2188146969670fac7fc9a38d69d449eea9f"
+      }
     ]
   },
   "x64": {
@@ -1947,6 +1957,16 @@
         "timestamp": 862399174,
         "size_of_image": 208896,
         "sha256": "307fb19124a850fed0ceed46c2e167792038923901a1f8e617cead97c47074e3"
+      }
+    ],
+    "winspool.drv": [
+      {
+        "file": "winspool.drv",
+        "path": "Windows\\System32\\winspool.drv",
+        "version": "10.0.26100.1",
+        "timestamp": 2139082085,
+        "size_of_image": 692224,
+        "sha256": "ee54f1885e979c622f0bf79a4c72936932665fc73049a134d91f6f82979c2ec0"
       }
     ]
   }

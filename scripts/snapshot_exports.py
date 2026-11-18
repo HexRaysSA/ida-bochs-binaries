@@ -31,6 +31,8 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
+from generate_stubs import module_name, stub_filename
+
 STUBS_DIR = Path(__file__).resolve().parent.parent / "data" / "stubs"
 EXPORTS_JSON = STUBS_DIR / "exports.json"
 SOURCES_JSON = STUBS_DIR / "sources.json"
@@ -77,7 +79,7 @@ def _source(entry: dict, file: str, path: str) -> dict:
 
 def pin_dll(dll: str, cache: Path) -> dict[str, list[dict]]:
     """The Windows 11 files of dll for each architecture, from Winbindex."""
-    file = f"{dll}.dll"
+    file = stub_filename(dll)
     path = cache / "winbindex" / f"{file}.json.gz"
     if not path.is_file():
         try:
@@ -259,7 +261,7 @@ def main() -> None:
 
     db: dict[str, dict[str, list[dict]]] = {}
     for arch, (machine, _) in ARCHES.items():
-        stub_dlls = set(sources_db[arch])
+        stub_dlls = {module_name(dll) for dll in sources_db[arch]}
         db[arch] = {}
         for dll in dlls:
             if dll not in sources_db[arch]:

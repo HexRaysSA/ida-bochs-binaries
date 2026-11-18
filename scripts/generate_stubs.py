@@ -43,6 +43,17 @@ def _align(value: int, alignment: int) -> int:
     return (value + alignment - 1) & ~(alignment - 1)
 
 
+def stub_filename(dll: str) -> str:
+    """The file name of the stub of dll: exports.json keys are module names
+    (kernel32) or file names when the extension is not .dll (winspool.drv)."""
+    return dll if "." in dll else f"{dll}.dll"
+
+
+def module_name(dll: str) -> str:
+    """The module name of dll, as forwarders name it (winspool.drv -> winspool)."""
+    return dll.split(".", 1)[0].lower()
+
+
 def _stub_forward(entry: dict, stub_dlls: set[str]) -> str | None:
     """The forward target of entry, if it is kept in the stub."""
     forward = entry.get("forward")
@@ -229,15 +240,15 @@ def _generate_stubs(
     pe64: bool = False,
 ) -> list[str]:
     label = "PE32+" if pe64 else "PE32"
-    stub_dlls = {name.lower() for name in exports_db}
+    stub_dlls = {module_name(name) for name in exports_db}
     output_dir.mkdir(parents=True, exist_ok=True)
     for dll_name in exports_db:
-        (output_dir / f"{dll_name}.dll").unlink(missing_ok=True)
+        (output_dir / stub_filename(dll_name)).unlink(missing_ok=True)
 
     failures: list[str] = []
 
     for i, (dll_name, entries) in enumerate(exports_db.items()):
-        dll_filename = f"{dll_name}.dll"
+        dll_filename = stub_filename(dll_name)
         out_path = output_dir / dll_filename
         image_base = base_start + i * DLL_IMAGE_BASE_STRIDE
 
@@ -284,8 +295,8 @@ def main() -> None:
         exports_db["x64"], OUTPUT_DIR_64, DLL_IMAGE_BASE_START_64, pe64=True,
     )
 
-    missing_32 = [n for n in exports_db["x86"] if not (OUTPUT_DIR_32 / f"{n}.dll").is_file()]
-    missing_64 = [n for n in exports_db["x64"] if not (OUTPUT_DIR_64 / f"{n}.dll").is_file()]
+    missing_32 = [n for n in exports_db["x86"] if not (OUTPUT_DIR_32 / stub_filename(n)).is_file()]
+    missing_64 = [n for n in exports_db["x64"] if not (OUTPUT_DIR_64 / stub_filename(n)).is_file()]
 
     if failures or missing_32 or missing_64:
         print("\nfailed")

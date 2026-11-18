@@ -14,7 +14,9 @@ from generate_stubs import (
     DLL_IMAGE_BASE_START_64,
     DLL_IMAGE_BASE_STRIDE,
     build_stub_dll,
+    module_name,
     read_stub,
+    stub_filename,
 )
 from snapshot_exports import keep_forward, merge_exports, read_exports
 
@@ -118,6 +120,20 @@ def test_forwarders_to_stubbed_dlls_are_kept(tmp_path):
     stub = _stub(tmp_path, entries, name="kernel32.dll", stub_dlls={"ntdll", "kernel32"})
     assert stub["exports"] == {(1, "EncodePointer", "NTDLL.RtlEncodePointer"),
                                (2, "Foo", None)}
+
+
+def test_stub_filename():
+    # programs import WINSPOOL.DRV, the loader looks for the file as named
+    assert stub_filename("kernel32") == "kernel32.dll"
+    assert stub_filename("winspool.drv") == "winspool.drv"
+    assert module_name("winspool.drv") == "winspool"
+    assert module_name("kernel32") == "kernel32"
+
+
+def test_forwarders_to_non_dll_stubs_are_kept(tmp_path):
+    entries = [{"ordinal": 1, "name": "OpenPrinterW", "forward": "WINSPOOL.OpenPrinterW"}]
+    stub = _stub(tmp_path, entries, stub_dlls={module_name("winspool.drv")})
+    assert stub["exports"] == {(1, "OpenPrinterW", "WINSPOOL.OpenPrinterW")}
 
 
 def test_unique_image_bases_no_collision(tmp_path):
