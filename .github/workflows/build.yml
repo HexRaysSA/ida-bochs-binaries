@@ -199,14 +199,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: win-stubs-x86
-          path: data/stubs/windows/*.dll
+          path: data/stubs/windows/*
           if-no-files-found: error
 
       - name: Upload 64-bit stub artifacts
         uses: actions/upload-artifact@v4
         with:
           name: win-stubs-x64
-          path: data/stubs/windows64/*.dll
+          path: data/stubs/windows64/*
           if-no-files-found: error
 
   unit-tests:
@@ -259,6 +259,8 @@ jobs:
           mkdir -p stage/data/stubs/windows stage/data/stubs/windows64
           cp artifacts/win-stubs-x86/*.dll stage/data/stubs/windows/
           cp artifacts/win-stubs-x64/*.dll stage/data/stubs/windows64/
+          cp artifacts/win-stubs-x86/*.drv stage/data/stubs/windows/
+          cp artifacts/win-stubs-x64/*.drv stage/data/stubs/windows64/
 
           # Build the archive
           cd stage
